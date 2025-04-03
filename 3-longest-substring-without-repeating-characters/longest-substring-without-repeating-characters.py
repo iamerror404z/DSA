@@ -3,9 +3,7 @@ class Solution:
         sep=max=(len(list(set(s))))
         ans=0
         pf=False
-        if max<=1:
-            return max
-        elif max==len(s):
+        if max<=1 or max==len(s):
             return max
         while (pf!=True):
             for i in range(0,len(s)-sep+1):
