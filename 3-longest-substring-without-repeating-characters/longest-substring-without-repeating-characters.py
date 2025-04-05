@@ -12,7 +12,8 @@ class Solution:
                     ans =max
                     found=True
                     break
-
+            if found==True:
+                break
             sep-=1
             max-=1
 
