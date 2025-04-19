@@ -1,10 +1,10 @@
 class Solution {
     public int maximumProduct(int[] nums) {
         Arrays.sort(nums);
-        int pos,neg=0;
+        int neg=0,point=0;
         int lm=0,step=Integer.MIN_VALUE;
-        for (int ii:nums){
-            if(ii<0){neg++;}}
+        while(neg<3 && point<nums.length){
+            if(nums[point++]<0){neg++;}}
         if(neg>=2){
              step=nums[0]*nums[1];
         step*=nums[nums.length-1];}
