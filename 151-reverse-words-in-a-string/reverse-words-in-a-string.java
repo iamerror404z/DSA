@@ -14,10 +14,8 @@ class Solution {
             System.out.println(i);
             String og=temp[i];
             String loc=(temp[i].replace(" ",""));
-            // System.out.println(loc.length());
             ans+=loc;
-            // System.out.println()
-             if(!og.equals("")){
+            if(!og.equals("")){
             ans+=" ";}
         } ans+=temp[0];
         
