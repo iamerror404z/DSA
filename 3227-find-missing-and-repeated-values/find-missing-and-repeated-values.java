@@ -20,9 +20,9 @@ class Solution {
                 ans[1]=i;
                 trigger++;
             }
-            if(trigger>=2){
-                return ans;
-            }
+            // if(trigger>=2){
+            //     return ans;
+            // }
         }
 
         return ans;
