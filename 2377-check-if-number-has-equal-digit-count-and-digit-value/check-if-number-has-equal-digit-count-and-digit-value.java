@@ -4,10 +4,8 @@ class Solution {
        for(int i=0;i<num.length();i++){
         freq[num.charAt(i)-'0']++;
        } 
-       for(int i=0;i<num.length();i++){
-        int comp=num.charAt(i)-'0';
-        // System.out.println(comp+" comp"+freq[i]);
-        if(comp!=freq[i]){
+       for(int i=0;i<num.length();i++){ 
+        if(num.charAt(i)-'0'!=freq[i]){
             return false;
         }
        }
