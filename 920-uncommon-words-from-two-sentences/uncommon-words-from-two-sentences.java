@@ -1,28 +1,34 @@
 class Solution {
     public String[] uncommonFromSentences(String s1, String s2) {
-        HashMap<String,Integer> track=new HashMap<>();
-        List<String> lst1=new ArrayList<>(Arrays.asList(s1.split(" ")));
-        List<String> lst2=new ArrayList<>(Arrays.asList(s2.split(" ")));
-
-        for(String s:lst1){
-            int freq=track.getOrDefault(s,0);
-            track.put(s,freq+1);
-        }
-        for(String s:lst2){
-            int freq=track.getOrDefault(s,0);
-            track.put(s,freq+1);
-        }
-        
-        List<String> ans=new ArrayList<>();
-        
-        for (String key:track.keySet()){
-            if(track.get(key)<2){
-                ans.add(key);
+        HashMap<String,Integer> freq=new HashMap<>();
+        for(String s:s1.split(" ")){
+            if(freq.containsKey(s)){
+                freq.put(s,freq.get(s)+1);
+            }else{
+                freq.put(s,1);
             }
         }
-        String[] fin=ans.toArray(new String[0]);
+        for(String s:s2.split(" ")){
+            if(freq.containsKey(s)){
+                freq.put(s,freq.get(s)+1);
+            }else{
+                freq.put(s,1);
+            }
+        }
+        ArrayList<String> step=new ArrayList<>();
+        for(String s:freq.keySet()){
+            if(freq.get(s)<2){
+                step.add(s);
+            }
+        }
+        String[] ans=new String[step.size()];
+        int point=0;
 
-        return fin;
+        for(String s:step){
+            ans[point++]=s;
+        }
 
+        return ans;
+
+        }
     }
-}
