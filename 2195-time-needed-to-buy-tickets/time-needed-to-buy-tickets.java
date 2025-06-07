@@ -1,21 +1,15 @@
 class Solution {
     public int timeRequiredToBuy(int[] tickets, int k) {
         int time=0;
-        int[] freq=new int[tickets.length];
 
-        while(freq[k]!=tickets[k]){
-            for(int i=0;i<tickets.length;i++){
-                if(tickets[i]!=freq[i]){
-                    freq[i]++;
-                    time++;
-                }
-                if(i==k &&freq[k]==tickets[k]){
-                    return time;
-                }
+        for(int i=0;i<tickets.length;i++){
+            if(i<=k){
+                time+=tickets[i]<=tickets[k]?tickets[i]:tickets[k];
+            }else{
+                time+=tickets[i]<tickets[k]?tickets[i]:tickets[k]-1;
             }
         }
-        
 
-        return -1;
+        return time;
     }
 }
