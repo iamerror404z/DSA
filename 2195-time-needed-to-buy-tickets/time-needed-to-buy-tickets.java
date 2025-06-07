@@ -3,11 +3,11 @@ class Solution {
         int time=0;
 
         for(int i=0;i<tickets.length;i++){
-            if(i<=k){
+            if(i<=k)
                 time+=tickets[i]<=tickets[k]?tickets[i]:tickets[k];
-            }else{
+            else
                 time+=tickets[i]<tickets[k]?tickets[i]:tickets[k]-1;
-            }
+            
         }
 
         return time;
