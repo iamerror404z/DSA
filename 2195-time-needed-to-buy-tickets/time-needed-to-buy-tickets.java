@@ -9,7 +9,7 @@ class Solution {
                     freq[i]++;
                     time++;
                 }
-                if(freq[k]==tickets[k]){
+                if(i==k &&freq[k]==tickets[k]){
                     return time;
                 }
             }
