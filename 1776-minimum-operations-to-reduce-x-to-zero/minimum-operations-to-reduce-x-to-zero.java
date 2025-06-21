@@ -4,7 +4,6 @@ class Solution {
         int[] left=new int[size];
         int[] right=new int[size];
         int max=Integer.MAX_VALUE;
-        int min1=max,min2=max;
         int ans=max;
         int l_limit=0;
         int r_limit=size-1;
@@ -18,7 +17,7 @@ class Solution {
         for (int i=1;i<size;i++){
             left[i]=left[i-1]+nums[i];
             if(left[i]==x){
-                min1=(i+1);
+                ans=Math.min(i+1,ans);
             }if(left[i]<x){
                 l_limit++;
             }}
@@ -26,17 +25,14 @@ class Solution {
             for (int i=size-2;i>=0;i--){
                 right[i]=right[i+1]+nums[i];
                 if(right[i]==x){
-                    min2= size-i;
+                    ans=Math.min(ans, size-i);
                 }
                 
                 if(right[i]<x){
                     r_limit--;
                 }
             }
-            if(min1!=max || min2!=max){
-            ans=Math.min(min1,min2);
-            }
-
+            
             if(right[0]<x || left[size-1]<x){
                 return -1;
             }
