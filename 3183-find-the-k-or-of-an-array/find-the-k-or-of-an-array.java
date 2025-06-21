@@ -9,7 +9,7 @@ class Solution {
             }
         }
         int limit=Integer.toBinaryString(max).length();
-        for (int i=31;i>=0;i--){
+        for (int i=limit;i>=0;i--){
             int repeat=0;
             for (int num:nums){
                 if((num&(1<<i))>0 ){
