@@ -12,6 +12,7 @@ class Solution {
     public ListNode swapNodes(ListNode head, int k) {
         int len=0,var=0;
         ListNode  curr=head;
+
         while(curr!=null){
             len++;
             curr=curr.next;
