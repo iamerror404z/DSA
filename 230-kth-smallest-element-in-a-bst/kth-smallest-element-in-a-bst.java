@@ -14,21 +14,28 @@
  * }
  */
 class Solution {
-    LinkedList<Integer> lst=new LinkedList<>();
-
-    public void preOrder(TreeNode curr,LinkedList<Integer> list){
+    public int ans=0;
+    int step=0;
+    public void inOrder(TreeNode curr,int target){
         if(curr==null){
-            return;
+            return ;
         }
-        list.add(curr.val);
-        preOrder(curr.left,list);
-        preOrder(curr.right,list);
+        inOrder(curr.left,target);
+            
+        if(step==target){
+            // System.out.println(curr.val+"   vs  "+step+"   eee"+target);
+            
+            ans=curr.val;
+        }
+        step++;
+        inOrder(curr.right,target);
     }
-    public int kthSmallest(TreeNode root, int k) {
-        preOrder(root,lst);
 
-        Collections.sort(lst);
-        return lst.get(k-1);
+    public int kthSmallest(TreeNode root, int k) {
+        // int ans=0,step=0;
+        inOrder(root,k-1);
+
+        return ans;
         
     }
 }
