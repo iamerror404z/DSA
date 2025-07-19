@@ -7,7 +7,6 @@ class Solution {
        if(target==mid) return true;
        if(target>=start || target<=mid){
         for(int i=0;i<=len/2;i++){
-            System.out.println(nums[i]+"  pos"+i);
             if(nums[i]==target){
                 return true;
             }}}
