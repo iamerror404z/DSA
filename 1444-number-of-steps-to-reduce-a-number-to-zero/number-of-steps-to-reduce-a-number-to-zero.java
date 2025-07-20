@@ -5,7 +5,6 @@ class Solution {
         if(num==0){
             if(ans==0){
                 ans=step;
-                System.out.println(ans);
             }
             return ;
         }if(num%2==0 &&ans==0){
