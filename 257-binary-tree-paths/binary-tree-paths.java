@@ -15,23 +15,26 @@
  */
 class Solution {
     List<String> lst=new ArrayList<>();
-    public void Recursion(TreeNode curr,String step){
+    public void Recursion(TreeNode curr,StringBuilder step){
         if(curr==null){
             return;}
-        
+        int len=step.length();
+        step.append(curr.val);
         if(curr.left==null && curr.right==null){
-            step+=(curr.val);
             
-            lst.add(step);
+            lst.add(step.toString());
+            step.setLength(len);
             return ;
         }
-        Recursion(curr.left,step+curr.val+"->");
-        Recursion(curr.right,step+(curr.val)+"->");
+        step.append("->");
+        
+        Recursion(curr.left,step);
+        Recursion(curr.right,step);
+        step.setLength(len); }
 
 
-    }
     public List<String> binaryTreePaths(TreeNode root) {
-        Recursion(root,new String());
+        Recursion(root,new StringBuilder());
         return lst;
     }
 }
