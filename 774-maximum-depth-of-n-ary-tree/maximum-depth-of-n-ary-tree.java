@@ -24,7 +24,7 @@ class Solution {
             return;
         }
         max=Math.max(max,step);
-        List<TreeNode> next=new LinkedList<>();
+        
         for(Node curr:lst){
             Depth(curr.children,step+1);
         }
