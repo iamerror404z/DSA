@@ -43,7 +43,6 @@ class Solution {
             }
         }
 
-           System.out.println(Arrays.toString(temp));
 
         return  temp;
         
