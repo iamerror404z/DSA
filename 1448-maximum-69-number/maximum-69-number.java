@@ -3,7 +3,6 @@ class Solution {
         int rev=0;
         int changes=0;
         int b=num;
-        int len=(""+num).length();
         while(b!=0){
             rev+=(b%10);
             rev*=10;
