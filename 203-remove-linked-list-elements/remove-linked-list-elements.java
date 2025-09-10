@@ -30,10 +30,7 @@ class Solution {
 
             while(curr!=null &&curr.val==val){
             curr=curr.next;}
-            // System.out.println(prev.val+"<--p     next-->"+curr.val);
             prev.next=curr;
-
-        // 
         }
 
 
