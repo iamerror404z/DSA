@@ -48,11 +48,6 @@ class Solution {
 
             pos=Math.min(pos+1,len);
 
-            System.out.println("even");
-            if(curr!=null){
-            System.out.println("next node: "+curr.val);}
-            System.out.println("pos : "+pos);
-            System.out.println("len: "+len);
 
             
 
@@ -75,12 +70,7 @@ class Solution {
             len-=(move+1);
             pos=Math.min(pos+1,len);
 
-            System.out.println("odd");
-            System.out.println("pos: "+pos);
-            System.out.println("node to be passed : "+curr.val);
-            System.out.println("\n\n");
-
-
+            
             
             if(pos%2==0){
                 change(curr,pos);
