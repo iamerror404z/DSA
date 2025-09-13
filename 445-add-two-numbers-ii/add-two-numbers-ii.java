@@ -82,14 +82,12 @@ class Solution {
             }
             
             add(sum);
-            System.out.print(sum+"-->");
 
             curr1=curr1.next;
             curr2=curr2.next;
             
         }
 
-        System.out.println("carry  : "+carry);
 
         
         while(curr1!=null){
@@ -102,7 +100,6 @@ class Solution {
                 carry=0;
             }
             add(sum);
-            System.out.print(sum+"ls   -->");
             curr1=curr1.next;
         }
         
@@ -117,15 +114,13 @@ class Solution {
             }
             add(sum);
             curr2=curr2.next;
-            // System.out.print(sum+"-->");
         }
 
-        System.out.println("carry : "+carry);
 
         if(carry!=0){
             add(carry);
-            System.out.print(carry);
         }
+
         
          if(tail==null){
             return head;
