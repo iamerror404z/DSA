@@ -24,18 +24,12 @@ class Solution {
 
 
         while(curr!=null && curr.next!=null){
-            // int gd=gcd(curr.val,curr.next.val);
             ListNode gd=new ListNode(gcd(curr.val,curr.next.val));
             
             ListNode temp=curr.next;
             curr.next=gd;
             gd.next=temp;
-            curr=temp;
-
-            System.out.println(gd.val);
-
-
-        }
+            curr=temp;}
 
 
         
