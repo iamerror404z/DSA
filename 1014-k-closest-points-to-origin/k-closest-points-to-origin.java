@@ -32,7 +32,6 @@ class Solution {
 
             for(int j=0;j<size;j++){
                 ans[pointer++]=points[temp.get(j)];
-                System.out.println(Arrays.toString(points[temp.get(j)]));
             }
 
             
