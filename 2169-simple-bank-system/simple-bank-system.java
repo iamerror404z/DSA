@@ -36,7 +36,6 @@ class Bank {
     }
     
     public boolean deposit(int account, long money) {
-        System.out.println("Account , money "+account+" , "+money);
         
         if(account<1 || account>size){
             return false;
