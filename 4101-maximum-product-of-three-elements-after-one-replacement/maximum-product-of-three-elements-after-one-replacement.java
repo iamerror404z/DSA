@@ -34,7 +34,6 @@ class Solution {
         long choosen=Math.min(div,(long)Math.pow(10,5));
 
         product*=choosen;
-        System.out.println(choosen);
 
         return  product;
     }
