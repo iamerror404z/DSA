@@ -36,7 +36,6 @@ class Solution {
                       flag=true;
                     start=Math.min(start,locstart);
                     end=Math.max(end,locend);
-                    System.out.println();
                 }
                 if(locend>=start && locend<=end){
                     flag=true;
