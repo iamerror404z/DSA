@@ -33,11 +33,7 @@ class Solution {
                 int locend=intervals[right][1];
                
                 if(locstart>=start && locstart<=end){
-                System.out.println("right pos : "+right);
-               System.out.println("loc start   : "+locstart);
-               System.out.println("start : "+start+"\n\n"); 
-              
-                    flag=true;
+                      flag=true;
                     start=Math.min(start,locstart);
                     end=Math.max(end,locend);
                     System.out.println();
@@ -54,9 +50,6 @@ class Solution {
             lst.add(interval);
             
 
-            System.out.println(Arrays.toString(interval));
-            System.out.println("left :"+left);
-            System.out.println("left to be  : "+right);
             left=right;
             
         }
@@ -69,9 +62,7 @@ class Solution {
         Comparator comp=new mycomp();
 
         Arrays.sort(intervals,comp);
-        for(int[] i:intervals){
-            System.out.println(Arrays.toString(i));
-        }
+        
         answer(intervals,list);
 
         int size=list.size();
