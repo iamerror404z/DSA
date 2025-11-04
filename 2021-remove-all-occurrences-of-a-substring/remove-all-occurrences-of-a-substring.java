@@ -4,10 +4,7 @@ class Solution {
     public void answer(String s,String aim){
         if(s.indexOf(aim)!=-1){
 
-            System.out.println(s.indexOf(aim));
-
             s=s.replaceFirst(aim,"");
-            System.out.println(s);
             answer(s,aim);
         }
         if(!found){
