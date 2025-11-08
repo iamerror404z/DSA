@@ -16,7 +16,6 @@ class Solution {
             for(int j=start;j<end;j++){
                 List<Integer> inner=new LinkedList<>(outer.get(j));
                 inner.add(arr[i]);
-                System.out.println(inner);
                 outer.add(inner);
             }
         
