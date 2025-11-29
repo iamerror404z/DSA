@@ -1,17 +1,11 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        HashMap<Integer,Integer> hm=new HashMap<>();
+        int num=0;
         for(int i:nums){
-            int value=hm.getOrDefault(i,0);
-            hm.put(i,value+1);
-        }
-        
-        for(int j:hm.keySet()){
-            if(hm.get(j)==1){
-                return j;
-            }
+            num^=i;
         }
 
-        return 9999; 
+
+        return num;
     }
 }
