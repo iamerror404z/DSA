@@ -25,7 +25,6 @@ class Solution {
 
 
         if((curr.left==null && curr.right==null) && curr!=head){
-            System.out.println(val);
             temp+=val;
         }
         sum(curr.left,val*10);
