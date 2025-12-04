@@ -18,25 +18,27 @@ class Node {
 */
 
 class Solution {
-    public List<Integer> lst=new LinkedList<Integer>();
-    public void method(List<Node> nodes){
+    List<Integer> lst=new LinkedList<>();
+
+    public void answer(List<Node> nodes){
         if(nodes.isEmpty()){
-            return ;
+            return;
         }
-        for(Node curr:nodes){
-            lst.add(curr.val);
-            method(curr.children);
+        for(Node n:nodes){
+            lst.add(n.val);
+            answer(n.children);
         }
 
     }
-    public List<Integer> preorder(Node root) {
-        List<Node> start=new LinkedList<Node>();
-        if(root==null){
-            return lst;
-        }
-        start.add(root);
 
-        method(start);
+    public List<Integer> preorder(Node root) {
+        if(root==null){
+            return new LinkedList<>();
+        }
+        List<Node> list=new LinkedList<>();
+        list.add(root);
+
+        answer(list);
 
         return lst;
     }
