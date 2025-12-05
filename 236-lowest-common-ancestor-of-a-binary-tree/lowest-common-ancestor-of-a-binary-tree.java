@@ -28,9 +28,4 @@ class Solution {
         return curr;
 
     }
-
-    // public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-
-    //     return LCA(root,p,q);
-    // }
 }
