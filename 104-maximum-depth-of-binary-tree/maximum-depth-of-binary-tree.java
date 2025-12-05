@@ -14,24 +14,25 @@
  * }
  */
 class Solution {
-    int ans=0;
-    public void maxDep(TreeNode curr,int step){
+    int depth=0;
+
+    public void recursion(TreeNode curr,int level){
         if(curr==null){
-            ans=Math.max(ans,step);
-            return ;
+            depth=Math.max(depth,level-1);
+            return;
         }
-        step++;
-        maxDep(curr.left,step);
-        maxDep(curr.right,step);
+
+        recursion(curr.left,level+1);
+        recursion(curr.right,level+1);
+
     }
+
     public int maxDepth(TreeNode root) {
-        if(root==null){
-            return 0;
-        }
-        int step=0;
-        maxDep(root,step);
+        
+        int start=1;
 
-        return ans;
+        recursion(root,start);
 
+        return depth;
     }
 }
