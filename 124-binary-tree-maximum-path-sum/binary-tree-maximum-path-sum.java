@@ -24,8 +24,7 @@ class Solution {
         int right=Math.max(0,downWards(curr.right));
         int max=Math.max(left,right);
         maxPath=Math.max(maxPath,curr.val+left+right);
-        System.out.println(maxPath);
-
+        
         return Math.max(left,right)+(curr.val);
 
     }
