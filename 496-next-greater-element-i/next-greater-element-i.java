@@ -3,9 +3,8 @@ import java.util.*;
 
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        // value -> next greater value
-        Map<Integer, Integer> next = new HashMap<>(nums2.length * 2);
-        Deque<Integer> st = new ArrayDeque<>(); // stores values, monotonic decreasing
+         Map<Integer, Integer> next = new HashMap<>(nums2.length * 2);
+        Deque<Integer> st = new ArrayDeque<>(); 
 
         for (int i = nums2.length - 1; i >= 0; i--) {
             int x = nums2[i];
