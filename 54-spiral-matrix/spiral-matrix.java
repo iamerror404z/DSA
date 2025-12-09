@@ -5,7 +5,6 @@ class Solution {
 
     public  void horizontal(int[][] mat,int dir){
         if(count==size){
-            // System.out.println("limit reached buddy");
             return;
         }
         int move=0;
