@@ -9,7 +9,7 @@ class Solution {
         for (int i = nums2.length - 1; i >= 0; i--) {
             int x = nums2[i];
             while (!st.isEmpty() && st.peek() <= x) st.pop();
-            int ng = st.isEmpty() ? -1 : st.peek(); // single branch
+            int ng = st.isEmpty() ? -1 : st.peek();
             next.put(x, ng);
             st.push(x);
         }
