@@ -2,12 +2,23 @@ class Solution {
 
     public boolean isPossible(int[] piles,int h,int k){
         long count=0;
-        for(int i:piles){
-            count+=(i/k);
-            if(i%k!=0){
-                count++;
-            }
+        
+        int left=0;
+        int right=piles.length-1;;
+
+        while(left<right){
+            count+=piles[left]%k!=0?(piles[left]/k)+1:(piles[left]/k);
+            count+=piles[right]%k!=0?(piles[right]/k)+1:piles[right]/k;
+            left++;
+            right--;
         }
+
+        int size=piles.length;
+
+        if(size%2!=0){
+            count+=piles[size/2]%k==0?piles[size/2]/k:(piles[size/2]/k)+1;
+        }
+
         return count<=(long)h;
     }
 
