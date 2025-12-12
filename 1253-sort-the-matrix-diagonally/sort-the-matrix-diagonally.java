@@ -18,7 +18,6 @@ class Solution {
 
         Collections.sort(inner);
         wrapped.add(inner);
-        System.out.println(inner);
         
         
         row--;
@@ -85,22 +84,6 @@ class Solution {
 
         LinkedList<LinkedList<Integer>> wrapped=new LinkedList<>();
 
-
-
-        // index=traverse(pos,index,mat,wrapped);
-        // index=traverse(pos,index,mat,wrapped);
-        // index=traverse(pos,index,mat,wrapped); 
-        // System.out.println("lets shrink ");
-        // index=traverse(pos,index,mat,wrapped);
-        
-        // index=traverse(pos,index,mat,wrapped);
-        // index=traverse(pos,index,mat,wrapped);
-        // System.out.println(index);   
-        
-        // System.out.println(Arrays.toString(pos));
-        // index=traverse(pos,index,mat,wrapped);   
-
-
         while(index!=m*n){
             index=traverse(pos,index,mat,wrapped);
         }
@@ -114,17 +97,6 @@ class Solution {
             index=assign(pos,index,mat,wrapped,ans);
         }
        
-       
-        // index=traverse(pos,index,mat,wrapped);
-        
-        // System.out.println(Arrays.toString(pos));
-        // System.out.println("index is : "+index);
-        // System.out.println("m*n is : "+(mat.length*mat[0].length));
-
-        // // System.out.println(wrapped);
-
-
-        
 
         return ans;
     }
