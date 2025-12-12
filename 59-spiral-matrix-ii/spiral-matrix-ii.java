@@ -44,7 +44,6 @@ class Solution {
             if(dir==1 || dir==3){
                 for(int i=start;i!=end;i+=move){
                     ans[pos][i]=temp;
-                    // System.out.println(temp);
                     temp++;
                 }
             }
@@ -52,10 +51,8 @@ class Solution {
             else{
                 for(int i=start;i!=end;i+=move){
                     ans[i][pos]=temp;
-                    // System.out.println(temp);
                     temp++;
                 }
-                // System.out.println("else loop completed\n\n\n");
             }
 
 
@@ -73,7 +70,6 @@ class Solution {
             dir=dir%4==0?4:dir%4;
         }
 
-        System.out.println(temp);
         return ans;
     }
 }
