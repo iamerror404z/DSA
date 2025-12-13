@@ -45,8 +45,6 @@ class Solution {
                     if(curr.left!=null){
                     queue.offer(curr.left);
                     queue.offer(curr.right);}
-                    // curr.left=null;
-                    // curr.right=null;
                     prev=curr;
                 }
 
