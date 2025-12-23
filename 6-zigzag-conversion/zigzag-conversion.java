@@ -19,8 +19,7 @@ class Solution {
             return index;
         }
 
-        // int size=Math.min(1,);
-
+       
         for(int i=rows-2;i>=1 && index<s.length();i--){
             sb[i].append(s.charAt(index++));
         }
