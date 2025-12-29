@@ -33,7 +33,6 @@ class Solution {
         Queue<TreeNode> queue=new LinkedList<>();
         queue.add(root);
 
-        // System.out.println("the depth is : "+depth[0]);
         for(int i=0;i<=depth[0]-2;i++){
             int size=queue.size();
             for(int j=0;j<size;j++){
@@ -53,14 +52,11 @@ class Solution {
         int valueLoc=0;
 
         
-        // System.out.println(queue);
-        // System.out.println(nullLoc+" vs "+valueLoc);
 
         for(int i=0;i<size;i++){
             TreeNode curr=queue.poll();
             int left=2*i;
             int right=left+1;
-            System.out.println("element is : "+curr.val);
             if(curr.left!=null){
                 valueLoc=Math.max(valueLoc,left);
             }else{
@@ -75,7 +71,6 @@ class Solution {
 
         }
         
-        System.out.println(nullLoc+" vs "+valueLoc);
 
         return nullLoc>=valueLoc;
     }
