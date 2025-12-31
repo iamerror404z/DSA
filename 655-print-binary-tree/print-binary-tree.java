@@ -54,8 +54,6 @@ class Solution {
         int[] size=new int[1];
 
         findDepth(root,0,1,1,depth,size);
-        // System.out.println("The size is : "+size[0]);
-        // System.out.println("The depth is : "+depth[0]);
         List<List<String>> wrapped=new LinkedList<>();
 
         List<String> inner=new LinkedList<>(Collections.nCopies(size[0],""));
@@ -69,8 +67,6 @@ class Solution {
 
         traverse(root,0,size[0]-1,0,wrapped);
 
-
-        // System.out.println(wrapped);
 
 
 
