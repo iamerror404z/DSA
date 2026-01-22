@@ -42,11 +42,6 @@ class Solution {
        }
 
        
-        // for(int[] i:track){
-        //     System.out.println(Arrays.toString(i));
-        // }
-
-    //    System.out.println(cost(track,1,1));
  
 
 
