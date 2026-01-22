@@ -28,7 +28,7 @@ class Solution {
         while(curr!=null && next!=null){
 
             if ((curr.val>prev.val && curr.val>next.val) || (curr.val<prev.val && curr.val<next.val)){
-                // System.out.println("it works");
+                System.out.println("it works");
                 start=Math.min(start,pos);
                 end=Math.max(end,pos);
                 if(previous!=-1){
