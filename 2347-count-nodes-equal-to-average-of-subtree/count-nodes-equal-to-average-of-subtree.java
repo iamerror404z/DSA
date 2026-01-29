@@ -42,7 +42,6 @@ class Solution {
     public int averageOfSubtree(TreeNode root) {
         int[] ans=dfs(root);
 
-        // System.out.println(Arrays.toString(ans));
 
         return ans[2];
     }
