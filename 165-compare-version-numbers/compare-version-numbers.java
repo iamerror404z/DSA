@@ -38,12 +38,6 @@ class Solution {
         }
 
 
-
-        System.out.println(Arrays.toString(v1));
-
-        
-
-
         return 0;
     }
 }
