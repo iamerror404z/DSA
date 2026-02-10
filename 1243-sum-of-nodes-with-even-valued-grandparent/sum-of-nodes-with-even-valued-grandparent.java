@@ -14,22 +14,6 @@
  * }
  */
 class Solution {
-    // public void recursion(TreeNode curr,int pass1,int pass2,int level,int[] even){
-    //     if(curr==null){
-    //         return ;
-    //     }
-
-    //     if(level==pass1){
-    //         even[0]+=curr.val;
-
-    //         pass1=-1;
-    //     }
-
-    //     if(level==pass2)
-        
-
-    // }
-
     public int[] recursion(TreeNode curr,int []even){
         int[] ans=new int[2];
         if(curr==null){
@@ -59,7 +43,6 @@ class Solution {
         
         recursion(root,evenSum);
 
-        // System.out.println(Arrays.toString(recursion(root)));
         return evenSum[0];
     }
 }
