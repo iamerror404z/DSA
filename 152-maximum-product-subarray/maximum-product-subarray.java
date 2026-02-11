@@ -26,8 +26,6 @@ class Solution {
             negative[i]=prev;
         }
 
-        // System.out.println(Arrays.toString(track));
-        // System.out.println(Arrays.toString(negative));
 
         int max=(int)track[0];
         start=0;
@@ -41,11 +39,9 @@ class Solution {
             }else{
                 int index=negative[start];
                 long tempMax=track[i];
-                // System.out.println("i is :"+i+" to cut till : "+index);
 
                 if(index<i){
                     tempMax/=track[index];
-                    // System.out.println(tempMax);
                     max=Math.max(max,(int)tempMax);
                 }
 
