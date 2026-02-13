@@ -1,12 +1,10 @@
 class NumMatrix {
     int[][] forward;
-    int[][] vertical;
 
     public NumMatrix(int[][] matrix) {
         int rowSize=matrix.length;
         int colSize=matrix[0].length;
         forward=new int[rowSize][colSize];
-        int prev=0;
 
         forward[0][0]=matrix[0][0];
 
@@ -25,9 +23,6 @@ class NumMatrix {
             }
         }
 
-        for(int i[]:forward){
-            System.out.println(Arrays.toString(i));
-        }
         
     }
     
