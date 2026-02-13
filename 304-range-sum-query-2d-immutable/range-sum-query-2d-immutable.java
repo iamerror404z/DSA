@@ -10,7 +10,6 @@ class NumMatrix {
 
         for(int i=1;i<colSize;i++){
             forward[0][i]=matrix[0][i]+forward[0][i-1];
-            System.out.println(forward[0][i]);
         }
 
 
