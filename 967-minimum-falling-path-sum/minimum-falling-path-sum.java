@@ -33,9 +33,7 @@ class Solution {
         }
 
 
-        for(int[] i:backtracking){
-            System.out.println(Arrays.toString(i));
-        }
+        
 
         int min=Integer.MAX_VALUE;
         
