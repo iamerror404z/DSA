@@ -18,9 +18,7 @@ class Solution {
         }
 
 
-        for(int i[]:window){
-            System.out.println(Arrays.toString(i));
-        }
+        
 
         int[][] ans=new int[rowSize][colSize];
 
