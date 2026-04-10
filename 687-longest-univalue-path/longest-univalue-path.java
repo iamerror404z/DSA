@@ -27,17 +27,16 @@ class Solution {
 
         int edges=0;
 
-        if(left[0]==curr.val && right[0]==curr.val){
-            left[1]++;
-            right[1]++;
-            edges=Math.max(left[1],right[1]);
-            max[0]=Math.max(left[1]+right[1],max[0]);
-        }else if(left[0]==curr.val){
+        if(left[0]==curr.val){
             left[1]++;
             edges=left[1];
-        }else if(right[0]==curr.val){
+        }
+        if(right[0]==curr.val){
             right[1]++;
-            edges=right[1];
+            if(edges!=0){
+                max[0]=Math.max(max[0],left[1]+right[1]);
+            }
+            edges=Math.max(edges,right[1]);
         }
 
         
