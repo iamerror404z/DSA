@@ -29,9 +29,7 @@ class Solution {
         int rightDown=dfs(curr.right,above);
 
         if(above!=0 && curr.right!=null){
-            System.out.println("above is : "+above);
             rightDown=(rightDown-above);
-            System.out.println("rightdown is : "+rightDown);
             
         }
 
