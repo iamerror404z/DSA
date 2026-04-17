@@ -1,12 +1,35 @@
 class Solution {
-    public int findMin(int[] nums) {
-        int min=Integer.MAX_VALUE;
+    public int binarySearch(int[] nums){
+        int start=0;
+        int end=nums.length-1;
+        int minIndex=0;
 
-        for (int i:nums){
-            if(i<min){
-                min=i;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+
+            if(nums[start]<=nums[mid]){
+                if(nums[start]<nums[minIndex]){
+                    minIndex=start;
+                }
+                start=mid+1;
+            }else{
+                if(nums[mid]<=nums[minIndex]){
+                    minIndex=mid;
+                }
+
+                end=mid-1;
             }
+
+
         }
-        return min;
+
+
+
+        return minIndex;
+    }
+
+    public int findMin(int[] nums) {
+    
+        return nums[binarySearch(nums)];
     }
 }
