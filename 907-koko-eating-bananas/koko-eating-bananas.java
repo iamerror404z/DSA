@@ -23,7 +23,7 @@ class Solution {
     }
 
     public int minEatingSpeed(int[] piles, int h) {
-        int max=Integer.MAX_VALUE;
+        int max=Integer.MIN_VALUE;
         for(int i:piles){
             if(i>max)max=i;
         }
@@ -45,6 +45,6 @@ class Solution {
 
 
 
-        return ans;   
+        return start;   
     }
 }
