@@ -19,7 +19,7 @@ class Solution {
         for(int i=0;i<k;i++){
             num=(num<<1);
             if(s.charAt(i)=='1'){
-                num+=1;
+                num=num|1;
             }
         }
 
