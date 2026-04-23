@@ -31,7 +31,7 @@ class Solution {
                 num=num-(int)Math.pow(2,k-1);
             }
             num=(num<<1);
-            num+=(s.charAt(i)-'0');
+            num=num|(s.charAt(i)-'0');
 
             
             map[num]=1;}
