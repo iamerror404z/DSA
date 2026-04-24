@@ -21,11 +21,10 @@ class Solution {
                 prev=i;
             }
             left[i]=i-prev;
-         }
-
-         for(int i=0;i<size;i++){
             max=Math.max(Math.min(left[i],right[i]),max);
          }
+
+         
 
 
         return max; 
