@@ -65,7 +65,7 @@ class Solution {
 class MyComp implements Comparator<int[]>{
     @Override
     public int compare(int []a,int[] b){
-        if(a[0]==b[0] && a[0]==(int)Math.pow(10,9)){
+        if(a[0]==b[0] && a[1]==10){
             return 0;
         }
 
