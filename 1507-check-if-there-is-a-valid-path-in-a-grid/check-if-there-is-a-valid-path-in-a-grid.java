@@ -63,10 +63,8 @@ class Solution {
         int colSize=grid[0].length;
 
         int[][] track=new int[rowSize][colSize];
-        int count=0;
 
         while(queue.size()!=0 && track[rowSize-1][colSize-1]!=1){
-            count++;
             int[] axis=queue.poll();
             int r=axis[0];
             int c=axis[1];
