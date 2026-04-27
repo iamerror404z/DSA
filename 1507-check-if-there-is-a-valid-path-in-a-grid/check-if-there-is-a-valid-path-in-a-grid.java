@@ -64,7 +64,7 @@ class Solution {
 
         int[][] track=new int[rowSize][colSize];
 
-        while(queue.size()!=0 && track[rowSize-1][colSize-1]!=1){
+        while(queue.size()!=0){
             int[] axis=queue.poll();
             int r=axis[0];
             int c=axis[1];
