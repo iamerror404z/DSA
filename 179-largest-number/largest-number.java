@@ -44,9 +44,7 @@ class Solution {
         MyComp mycomp=new MyComp();
         Arrays.sort(processed,mycomp);
 
-        for(int i[]:processed){
-            System.out.println(Arrays.toString(i));
-        }
+        
 
         if(processed[size-1][0]==0){
             return "0";
