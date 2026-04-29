@@ -16,8 +16,7 @@ class Solution {
                 start++;
             }
 
-            // System.out.println("Start is : "+start+"end is : "+i+"nums is : "+nums[i]);
-            max=Math.max(max,i-start+1);
+           max=Math.max(max,i-start+1);
             windowSum+=nums[i];
         }
 
