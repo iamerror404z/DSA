@@ -1,8 +1,3 @@
-
-SELECT MAX(salary) AS SecondHighestSalary 
-    FROM Employee e
-    JOIN(
-        SELECT  MAX(salary) as highest_salary From Employee
-    )  AS     Aim
-
-WHERE NOT e.salary=Aim.highest_salary;
+# Write your MySQL query statement below
+SELECT MAX(salary) as SecondHighestSalary FROM Employee
+WHERE salary<(SELECT MAX(salary) FROM employee);
