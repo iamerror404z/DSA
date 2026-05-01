@@ -1,3 +1,4 @@
 # Write your MySQL query statement below
-SELECT MAX(salary) as SecondHighestSalary FROM Employee
-WHERE salary<(SELECT MAX(salary) FROM employee);
+SELECT (SELECT DISTINCT Salary FROM Employee
+ORDER BY salary DESC
+LIMIT 1 ,1) AS SecondHighestSalary;
