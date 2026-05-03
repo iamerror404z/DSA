@@ -11,7 +11,6 @@ class Solution {
             }
         }
 
-        System.out.println(sb.toString());
 
         return Integer.parseInt(sb.toString(),2);
     }
