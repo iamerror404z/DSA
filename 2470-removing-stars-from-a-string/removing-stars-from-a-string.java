@@ -1,28 +1,25 @@
 class Solution {
     public String removeStars(String s) {
-        Deque<Character> queue=new LinkedList<>();
-        queue.addLast(s.charAt(0));
+        Stack<Character> stack = new Stack<>();
 
-        for(int i=1;i<s.length();i++){
-            char curr=s.charAt(i);
+        for (int i = 0; i < s.length(); i++) {
+            char curr = s.charAt(i);
 
-            if(curr=='*'){
-                queue.pollLast();
-            }else{
-                queue.addLast(curr);
+            if (curr == '*') {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
+            } else {
+                stack.push(curr);
             }
-
         }
-    StringBuilder sb=new StringBuilder();
 
-    while(!queue.isEmpty()){
-        sb.append(queue.pollFirst());
-    }
+        StringBuilder sb = new StringBuilder();
 
+        while (!stack.isEmpty()) {
+            sb.append(stack.pop());
+        }
 
-
-
-        return sb.toString();
-        
+        return sb.reverse().toString();
     }
 }
