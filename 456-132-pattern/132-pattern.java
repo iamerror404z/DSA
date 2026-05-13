@@ -24,10 +24,6 @@ class Solution {
 
                 flag=flag || is132(temp[index][1],temp[index][0],arr[pointer2][0]);
 
-                // if(flag){
-                //     System.out.println(temp[index][0]);
-                // }
-
                 pointer1++;
                 index++;
             }else{
@@ -39,22 +35,10 @@ class Solution {
         }
 
         while(pointer1<=mid){
-            temp[index][0]=arr[pointer1][0];
+                temp[index][0]=arr[pointer1][0];
                 temp[index][1]=arr[pointer1][1];
 
                 flag=flag || is132(temp[index][1],temp[index][0],arr[mid+1][0]);
-                
-                // if(temp[index][0]==-1){
-                //     System.out.println("nums is : "+temp[index][0]);
-                //     System.out.println("left is : "+temp[index][1]);
-                //     System.out.println("right is : "+arr[end][0]);
-                // }
-
-                // if(flag){
-                //     System.out.println("num is "+temp[index][0]);
-                //     System.out.println("arr[end] is : "+arr[end][0]+"\n\n");
-                // }
-
                 pointer1++;
                 index++;
         }
@@ -106,18 +90,9 @@ class Solution {
             arr[i][1]=Math.min(arr[i-1][1],nums[i-1]);
         }
 
-       boolean  flag= mergeSort(arr,0,size-1);
+   
 
-
-        // for(int[] i:arr){
-        //     System.out.print(Arrays.toString(i)+", ");
-        // }
-
-
-
-
-
-        return flag;
+        return mergeSort(arr,0,size-1);
 
     }
 }
