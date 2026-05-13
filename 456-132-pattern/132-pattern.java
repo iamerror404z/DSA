@@ -72,10 +72,14 @@ class Solution {
         boolean right=mergeSort(arr,mid+1,end);
         boolean left=mergeSort(arr,start,mid);
 
+        if(left||right){
+            return true;
+        }
+
         boolean curr=sort(arr,start,mid,end);
 
 
-        return right || curr || left;
+        return curr;
     }
 
 
