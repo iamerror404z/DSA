@@ -42,7 +42,6 @@ class Solution {
             return true;
         }
 
-        // System.out.println("num is : "+i+"   rquired is : "+found);
        }
 
         return false;
