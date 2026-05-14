@@ -1,48 +1,22 @@
 class Solution {
-
-
-    public int biSearch(int target,int start,int end){
+    public boolean judgeSquareSum(int c) {
+        // we have already done with the binarysearch approach now moving forward to the two pointers
+        int size=(int)Math.sqrt(c);
+        long start=0;
+        long end=size;
 
         while(start<=end){
-            int mid=start+(end-start);
+            long currSum=(start*start)+(end*end);
 
-            if(mid*mid==target){
-                return mid;
-            }
-
-            if(mid*mid>target){
-                end=mid-1;
+            if(currSum==c){
+                return true;
+            }else if(currSum<c){
+                start++;
             }else{
-                start=mid+1;
+                end--;
             }
-
         }
 
-
-
-
-        return -1;
-    }
-
-
-    public boolean judgeSquareSum(int c) {
-        if(c==0){
-            return true;
-        }
-
-        int size=(int)Math.sqrt(c);
-        System.out.println(size);
-
-       for(int i=0;i<=size;i++){
-        int curr=i*i;
-        int required=c-curr;
-        int found=biSearch(required,i,size);
-
-        if(found!=-1){
-            return true;
-        }
-
-       }
 
         return false;
     }
