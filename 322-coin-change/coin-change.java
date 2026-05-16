@@ -63,9 +63,6 @@ class Solution {
             Arrays.fill(i,-2);
         }
 
-        
-        Arrays.sort(coins);
-
         minCoins(size-1,amount,coins,dp);
 
     
