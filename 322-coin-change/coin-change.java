@@ -2,16 +2,12 @@ class Solution {
 
     public  int minCoins(int index,int target,int[] coins,int[][] dp){
         if(index==0){
-            // System.out.println("coins is :"+coins[0]);
-            // System.out.println("num is :"+target);
-
             if(target%coins[0]==0){
                 dp[index][target]=target/coins[index];
             }else{
                 dp[index][target]=-1;
             }
 
-            // System.out.println("reult is :"+dp[index][target]);
             return dp[index][target];
         }
 
@@ -53,9 +49,6 @@ class Solution {
         
         dp[index][target]=res[1]==-1?-1:res[0];
 
-
-        // System.out.println("coins is : "+coins[index]);
-        // System.out.println("Number of coins is : "+dp[index][target]);
         return dp[index][target];
     } 
 
@@ -70,22 +63,10 @@ class Solution {
             Arrays.fill(i,-2);
         }
 
-        // for(int i[]:dp){
-        //     System.out.println(Arrays.toString(i));
-        // }
         
         Arrays.sort(coins);
 
         minCoins(size-1,amount,coins,dp);
-
-        
-        System.out.println(dp[size-1][amount]);
-        
-
-
-
-
-        
 
     
         return dp[size-1][amount];
