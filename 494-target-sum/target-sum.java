@@ -1,6 +1,10 @@
 class Solution {
 
     public int countPaths(int index,int target,int nums[],int[][] dp){
+        if(index>nums.length || target>dp[0].length){
+            return 0;
+        }
+
         if(index==nums.length){
             if(target==0){
                 return 1;
@@ -10,17 +14,23 @@ class Solution {
             return 0;
         }
 
+
+       
+        if(dp[index][target]!=-1){
+            return dp[index][target];
+        }
+
         int posCount=countPaths(index+1,Math.abs(target-nums[index]),nums,dp);
 
         
         int negCount=countPaths(index+1,Math.abs(target+nums[index]),nums,dp);
 
 
-        int res=posCount+negCount;
+        dp[index][target]=posCount+negCount;
 
 
 
-        return res;
+        return dp[index][target];
 
     }
 
@@ -39,12 +49,15 @@ class Solution {
             return 0;
         }
 
-        int[][] dp=new int[size][sum+1];
+        int[][] dp=new int[size][Math.abs(target)+sum+1];
+
+        for(int i[]:dp){
+            Arrays.fill(i,-1);
+        }
 
 
 
-        int ans=countPaths(0,target,nums,dp);
-        System.out.println(ans);
+        int ans=countPaths(0,Math.abs(target),nums,dp);
 
         return ans;
         
