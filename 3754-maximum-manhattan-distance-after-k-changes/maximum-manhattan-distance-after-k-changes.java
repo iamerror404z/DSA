@@ -33,15 +33,6 @@ class Solution {
             
             currSum+=+adjustMent;
 
-            // System.out.println("index is :"+i);
-            // System.out.println(currSum);
-            // System.out.println(adjustMent);
-            // System.out.println("next"+"\n\n");
-            
-    
-
-            // System.out.println(currSum);
-
             max=Math.max(max,currSum);
             
 
