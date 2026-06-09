@@ -14,15 +14,7 @@
  * }
  */
 class Solution {
-    /*
-    res[0]=maxSum;
     
-    res[1]:
-        0==>null by default
-        1==>null by decision
-    */
-
-
 
     public long[] dfs(TreeNode curr,int limit,long runSum){
         long[] res=new long[3];
@@ -89,9 +81,6 @@ class Solution {
        }
 
 
-    //    root.val=147;
-
-    //    root.right=new TreeNode(147);
 
 
         return root;
