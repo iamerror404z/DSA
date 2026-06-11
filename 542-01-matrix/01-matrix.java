@@ -35,14 +35,6 @@ class Solution {
 
 
 
-        // for(int i=0;i<queue.size();i++){
-        //     int[] curr=queue.poll();
-        //     if(mat[curr[0]][curr[1]]!=1){
-        //         System.out.println("false");
-        //     }else{
-        //     System.out.println(Arrays.toString(curr));}
-        //     queue.add(curr);
-        // }
 
 
 
@@ -103,11 +95,6 @@ class Solution {
                 }
             }
 
-            if(row==2  && col==colSize-1){
-                System.out.println(Arrays.toString(curr));
-                System.out.println(up+"  "+down+"  "+left+"  "+right);
-                System.out.println(min);
-            }
 
             
 
@@ -119,10 +106,6 @@ class Solution {
 
 
 
-        // for(int i[]:res){
-        //     System.out.println(Arrays.toString(i));
-            
-        // }
 
 
 
