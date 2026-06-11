@@ -51,11 +51,6 @@ class Solution {
         int left=minCostNeeded(curr*2,newRunSum,target,cost,downCost);
         int right=minCostNeeded((curr*2)+1,newRunSum,target,cost,downCost);
 
-        // System.out.println("curr is : "+curr);
-        // System.out.println("left is : "+left);
-        // System.out.println("right is : "+right);
-        // System.out.println("needed is : "+needed);
-        // System.out.println("runSum is : "+runSum+"\n\n");
 
 
 
