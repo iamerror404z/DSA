@@ -20,11 +20,7 @@ class Solution {
                 found=1;
                 long maxD=curr*(long)Math.pow(10,mul-1);
                 numBuild+=maxD;
-                // System.out.println(maxD);
-
-                // System.out.println(numBuild);
                 stack.push(digit);
-                // System.out.println(stack);
                 
             }else{
                 long currD=curr*rightShift;
@@ -41,8 +37,6 @@ class Solution {
 
 
 
-
-        // System.out.println(stack);
         long res=numBuild-numBuildSub;
 
 
