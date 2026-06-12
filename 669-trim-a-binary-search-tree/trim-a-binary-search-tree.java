@@ -37,9 +37,9 @@ class Solution {
         int currVal=curr.val;
 
         
-        if(curr.val==0){
-            System.out.println("curr index is : "+currVal);
-        }
+        // if(curr.val==0){
+        //     System.out.println("curr index is : "+currVal);
+        // }
 
 
         if(currVal<low || currVal>high){
