@@ -1,4 +1,11 @@
 class Solution {
+    // 110 lines lets optimize it 
+
+    public void adder(int r,int c,int val,Queue<int[]> queue){
+        queue.add(new int[]{r,c,val});
+    }
+
+
     public int nearestExit(char[][] maze, int[] entrance) {
         int[] min=new int[]{Integer.MAX_VALUE,0};
         Queue<int[]> queue=new LinkedList<>();
@@ -10,18 +17,18 @@ class Solution {
         int colSize=maze[0].length;
 
         if(r-1>=0 &&maze[r-1][c]=='.'){
-            queue.add(new int[]{r-1,c,1});
+            adder(r-1,c,1,queue);
         }
 
         if(r+1<rowSize && maze[r+1][c]=='.'){
-            queue.add(new int[]{r+1,c,1});
+            adder(r+1,c,1,queue);
         }
 
         if(c-1>=0 && maze[r][c-1]=='.'){
-            queue.add(new int[]{r,c-1,1});
+            adder(r,c-1,1,queue);
         }
         if(c+1<colSize && maze[r][c+1]=='.'){
-            queue.add(new int[]{r,c+1,1});
+              adder(r,c+1,1,queue);
         }
 
         maze[r][c]='+';
@@ -44,50 +51,38 @@ class Solution {
 
             if(r-1>=0){
                 if(maze[r-1][c]=='.'){
-                    queue.add(new int[]{r-1,c,val+1});
+                    adder(r-1,c,val+1,queue);
                 }
 
             }else{
-                // System.out.println(Arrays.toString(curr));
-                min[0]=Math.min(min[0],curr[2]);
-                min[1]=1;
+                return val;
             }
 
             if(r+1<rowSize){
                 if(maze[r+1][c]=='.'){
-                    queue.add(new int[]{r+1,c,val+1});
+                    adder(r+1,c,val+1,queue);
                 }
 
             }else{
-                
-                // System.out.println(Arrays.toString(curr));
-                min[0]=Math.min(min[0],val);
-                min[1]=1;
+                return val;
             }
 
             if(c-1>=0){
                 if(maze[r][c-1]=='.'){
-                    queue.add(new int[]{r,c-1,val+1});
+                    adder(r,c-1,val+1,queue);
                 }
 
             }else{
-                
-                // System.out.println(Arrays.toString(curr));
-                min[0]=Math.min(min[0],val);
-                min[1]=1;
-                
+                return val;
             }
 
             if(c+1<colSize){
                 if(maze[r][c+1]=='.'){
-                    queue.add(new int[]{r,c+1,val+1});
+                    adder(r,c+1,val+1,queue);
                 }
 
             }else{
-                
-                // System.out.println(Arrays.toString(curr));
-                min[0]=Math.min(min[0],val);
-                min[1]=1;
+                return val;
             }
 
 
@@ -95,16 +90,7 @@ class Solution {
         }
 
 
-        if(min[1]==0){
-            return -1;
-        }
 
-
-
-
-
-
-
-        return min[0];
+        return -1;
     }   
 }
