@@ -22,7 +22,6 @@ class Solution {
         
         int min=endDay-times[size-1]+times[0];
 
-        // System.out.println(Arrays.toString(times));
 
 
         for(int i=1;i<size;i++){
