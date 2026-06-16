@@ -1,52 +1,46 @@
+// optimizing from o(n) sc ==> o(1)
+
 class Solution {
     public int maxScore(int[] cardPoints, int k) {
+        int max=0;
         int size=cardPoints.length;
-        int[] postSum=new int[size];
-        int[] preSum=new int[size];
         int end=size-1;
 
-        preSum[0]=cardPoints[0];
-        postSum[end]=cardPoints[end];
+        long leftSum=0;
+        long rightSum=0;
 
-
-        for(int i=1;i<size-1;i++){
-            preSum[i]=preSum[i-1]+cardPoints[i];
-            postSum[end-i]=postSum[end-i+1]+cardPoints[end-i];
+        for (int i=0;i<k;i++){
+            leftSum+=cardPoints[i];
+            rightSum+=cardPoints[end-i];
 
         }
 
-        preSum[end]=preSum[end-1]+cardPoints[end];
+        // System.out.println(preSum+"  "+postSum);
 
+       int[] left=new int[2];
+       int[] right=new int[2];
 
-        if(end>=1){
-        postSum[0]=postSum[1]+cardPoints[0];}
+       left[1]=k-1;
+       right[0]=end;
+       right[1]=end-k+1;
 
-        int max=0;
-
-        System.out.println(Arrays.toString(preSum));
-        System.out.println(Arrays.toString(postSum));
-
-
-        int startPointer=0;
-        int endPointer=end;
-
-        for(int i=1;i<=k;i++){
-            int rem=k-i;
-            int leftSum=cardPoints[startPointer]-preSum[startPointer]+preSum[Math.min(end,startPointer+rem)];
-            int rightSum=cardPoints[endPointer]-postSum[endPointer]+postSum[Math.max(0,endPointer-rem)];
-
-
+        for(int i=0;i<k;i++){
             if(leftSum>=rightSum){
-                max+=cardPoints[startPointer];
-                startPointer++;
-            }
-            else{
-                max+=cardPoints[endPointer];
-                endPointer--;
-            }
-            
-        }
+                max+=cardPoints[left[0]];
+                leftSum-=cardPoints[left[0]];
+                left[0]++;
 
+                rightSum-=cardPoints[right[1]];
+                right[1]++;
+            }else{
+                max+=cardPoints[right[0]];
+                rightSum-=cardPoints[right[0]];
+                right[0]--;
+
+                leftSum-=cardPoints[left[1]];
+                left[1]--;
+            }
+        }
 
 
         return max;
