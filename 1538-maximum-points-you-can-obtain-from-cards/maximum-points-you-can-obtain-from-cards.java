@@ -45,7 +45,6 @@ class Solution {
                 endPointer--;
             }
             
-                // System.out.println(max);
         }
 
 
