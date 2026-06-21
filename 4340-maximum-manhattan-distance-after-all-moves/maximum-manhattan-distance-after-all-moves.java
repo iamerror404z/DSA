@@ -7,17 +7,27 @@ class Solution {
         int changes=0;
 
         for(char ch:moves.toCharArray()){
-            if(ch=='_'){
+            switch (ch) {
+            case '_':
                 changes++;
-            }else if(ch=='U'){
-                dir[0]++;
-            }else if(ch=='D'){
-                dir[1]++;
-            }else if(ch=='L'){
-                dir[2]++;
-            }else{
-                dir[3]++;
-            }
+        break;
+
+    case 'U':
+        dir[0]++;
+        break;
+
+    case 'D':
+        dir[1]++;
+        break;
+
+    case 'L':
+        dir[2]++;
+        break;
+
+    default:
+        dir[3]++;
+        break;
+}
         }
 
         int upDown=Math.abs(dir[0]-dir[1]);
