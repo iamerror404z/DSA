@@ -32,18 +32,9 @@ class Solution {
             }
         }
 
-        // int qSize=queue.size();
-
-        // for(int i=0;i<qSize;i++){
-        //     int[] curr=queue.poll();
-        //     System.out.println(Arrays.toString(curr));
-        //     queue.add(curr);
-        // }
 
         int max=0;
 
-
-        // System.out.println(queue);
 
         while(!queue.isEmpty()){
             int curr[]=queue.poll();
