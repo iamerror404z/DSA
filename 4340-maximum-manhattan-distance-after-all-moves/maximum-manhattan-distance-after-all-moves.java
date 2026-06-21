@@ -2,11 +2,7 @@ class Solution {
     public int maxDistance(String moves) {
         int[] dir=new int[4];
 
-        /* 0 = up
-        1=down
-        2=left
-        3=right
-        */
+        
 
         int changes=0;
 
