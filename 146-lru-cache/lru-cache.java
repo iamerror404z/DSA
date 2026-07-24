@@ -47,7 +47,7 @@ class LRUCache {
 
    public  LRUCache(int capacity){
         cap=capacity;
-        map=new HashMap<>();
+        map=HashMap.newHashMap(capacity+1);
 
         head=new Node();
         tail=new Node();
@@ -105,7 +105,7 @@ class LRUCache {
 
            
         }
-        
+
          Node newNode=new Node(key,value);
             map.put(key,newNode);
 
