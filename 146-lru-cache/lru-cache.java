@@ -111,7 +111,6 @@ class Cmap{
         
         if(prev==null){
             
-            System.out.println("num is "+node.key);
             map[hash]=node;
             size++;
             
@@ -219,9 +218,8 @@ class LRUCache {
             System.out.println("rmoved is : "+removed.key);
             
             if(removed==res){
-                Node tempRes=map.updateObj(res);
-                res=tempRes;
-                // System.out.println("obj is : "+tempRes);
+               res=map.updateObj(res);
+
             }
             
             map.remove(removed);
@@ -230,8 +228,6 @@ class LRUCache {
         Node newNode=new Node(key,value);
         
         map.add(newNode,res);
-        // System.out.println("map size is "+map.size());
-        // System.out.println("res is : "+res.val);
         
         insertAfterHead(newNode);
         
