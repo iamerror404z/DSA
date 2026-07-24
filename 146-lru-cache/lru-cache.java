@@ -215,7 +215,6 @@ class LRUCache {
         
         if(map.size()==cap){
             Node removed=evict();
-            System.out.println("rmoved is : "+removed.key);
             
             if(removed==res){
                res=map.updateObj(res);
