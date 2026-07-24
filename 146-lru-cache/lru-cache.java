@@ -1,125 +1,241 @@
+import java.util.*;
+
 class Node{
     int key;
     int val;
-
-    Node prev;
-    Node next;
-
+    
+    Node dlPrev;
+    Node dlNext;
+    
+    
+    Node mapPrev;
+    Node mapNext;
+    
     Node(){
         key=val=-1;
-        prev=next=null;
+        
+        dlPrev=dlNext=mapNext=mapPrev=null;
     }
-
-    Node(int key,int val){
+     Node(int key , int val){
         this.key=key;
         this.val=val;
-
-        prev=next=null;
+        dlPrev=dlNext=mapNext=mapPrev=null;
     }
+    
+    
+    
 }
 
 
 
-class LRUCache {
-    Map<Integer,Node> map;
-   final int cap;
-    Node head;
-    Node tail;
-
-    public void deleteNode(Node node){
-        Node prevNode=node.prev;
-        Node nextNode=node.next;
-
-        prevNode.next=nextNode;
-        nextNode.prev=prevNode;
-
-    }
-
-    public void insertAfterHead(Node node){
-        Node nextNode=head.next;
-
-        head.next=node;
-        node.prev=head;
-
-        node.next=nextNode;
-        nextNode.prev=node;
-    }
-
-   public  LRUCache(int capacity){
+class Cmap{
+    Node[] map;
+    final int cap;
+    int size=0;
+    
+    Cmap(int capacity){
         cap=capacity;
-        map=HashMap.newHashMap(capacity+1);
-
-        head=new Node();
-        tail=new Node();
-
-        head.next=tail;
-        tail.prev=head;
+        map=new Node[cap];
     }
-
-    public Node evict(){
-        Node op=tail.prev;
-        Node nextNode=tail.prev.prev;
-
-        tail.prev=nextNode;
-        nextNode.next=tail;
-
-        return op;
-
+    
+    public int size(){
+        return size;
     }
-
     
-    
-    public int get(int key) {
-        if(!map.containsKey(key)){
-            return -1;
+    public void remove(Node node){
+        int hash=node.key%cap;
+        
+        if(map[hash]==node){
+            Node nextNode=node.mapNext;
+            
+            if(nextNode!=null){
+                nextNode.mapPrev=null;
+            }
+            
+            map[hash]=nextNode;
+            size--;
+            
+            return ;
         }
-
-        Node res=map.get(key);
-
-        deleteNode(res);
-        insertAfterHead(res);
+        
+        
+        Node prevNode=node.mapPrev;
+        Node nextNode=node.mapNext;
         
 
-        return res.val;
+        if(prevNode!=null){
+        prevNode.mapNext=nextNode;
+        }
+
+        if(nextNode!=null){
+            nextNode.mapPrev=prevNode;
+        }
+        
+        
+        
+        size--;
+    }
+    
+    public Node get(int key){
+        int hash=key%cap;
+        
+        Node curr=map[hash];
+        Node prev=null;
+        
+        while(curr!=null){
+            if(curr.key==key){
+                return curr;
+            }
+            
+            prev=curr;
+            curr=curr.mapNext;
+        }
+        
+        return prev;
+    }
+    
+    public Node updateObj(Node node){
+        Node prevNode=node.mapPrev;
+        
+        if(prevNode!=null){
+            prevNode.mapNext=null;
+        }
+        
+        
+        return prevNode;
+    }
+    
+    public void add(Node node,Node prev){
+        int hash=node.key%cap;
+        
+        
+        if(prev==null){
+            
+            System.out.println("num is "+node.key);
+            map[hash]=node;
+            size++;
+            
+            return;
+        }
+        
+        prev.mapNext=node;
+        node.mapPrev=prev;
+        
+        
+        
+        
+        size++;
+    }
+    
+    
+
+}
+
+class LRUCache {
+    Node head;
+    Node tail;
+    Cmap map;
+    final int cap;
+    
+    
+    public void deleteNode(Node node){
+        Node prevNode=node.dlPrev;
+        Node nextNode=node.dlNext;
+        
+        prevNode.dlNext=nextNode;
+        nextNode.dlPrev=prevNode;
+    }
+    
+    public void insertAfterHead(Node node){
+        Node nextNode=head.dlNext;
+        
+        head.dlNext=node;
+        node.dlPrev=head;
+        
+        nextNode.dlPrev=node;
+        node.dlNext=nextNode;
+        
+    }
+    
+
+    public LRUCache(int capacity) {
+        cap=capacity;
+        map=new Cmap(cap);
+        
+        head=new Node();
+        tail=new Node();
+        
+        head.dlNext=tail;
+        tail.dlPrev=head;
+        
+    }
+    
+    public int get(int key) {
+        Node res=map.get(key);
+        
+        if(res!=null && res.key==key){
+            
+            deleteNode(res);
+            insertAfterHead(res);
+            
+            return res.val;
+        }
+        
+        
+
+        return -1;
+        
+    }
+    
+    public Node evict(){
+        Node curr=tail.dlPrev;
+        
+        Node prevNode=curr.dlPrev;
+        
+        tail.dlPrev=prevNode;
+        
+        prevNode.dlNext=tail;
+        
+        return curr;
+        
     }
     
     public void put(int key, int value) {
-        if(map.containsKey(key)){
-            Node node=map.get(key);
-            node.val=value;
+        Node res=map.get(key);
+        
+        if(res!=null && res.key==key){
+            res.val=value;
             
-            deleteNode(node);
-            insertAfterHead(node);
+            deleteNode(res);
+            insertAfterHead(res);
 
-
-
-            return ;
+            return;
         }
-
-
-
+        
+       
+        
         if(map.size()==cap){
-            Node res=evict();
-
-            map.remove(res.key);
-
-           
+            Node removed=evict();
+            System.out.println("rmoved is : "+removed.key);
+            
+            if(removed==res){
+                Node tempRes=map.updateObj(res);
+                res=tempRes;
+                // System.out.println("obj is : "+tempRes);
+            }
+            
+            map.remove(removed);
         }
-
-         Node newNode=new Node(key,value);
-            map.put(key,newNode);
-
-            insertAfterHead(newNode);
-
-
-
+        
+        Node newNode=new Node(key,value);
+        
+        map.add(newNode,res);
+        // System.out.println("map size is "+map.size());
+        // System.out.println("res is : "+res.val);
+        
+        insertAfterHead(newNode);
+        
+        
         
     }
 }
-
-/**
- * Your LRUCache object will be instantiated and called as such:
- * LRUCache obj = new LRUCache(capacity);
- * int param_1 = obj.get(key);
- * obj.put(key,value);
- */
