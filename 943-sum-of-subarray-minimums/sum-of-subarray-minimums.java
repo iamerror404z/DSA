@@ -11,12 +11,10 @@ class Solution {
             int currIndex=deque.pollLast();
             int prevIndex=deque.isEmpty()?-1:deque.peekLast();
 
-            // finding the total number of times per a cycle
             long cycle=1;
 
             long cycleLength=endIndex-currIndex+1;
             cycle=cycleLength*arr[currIndex];
-            // we are done with the sum per a cycle 
 
 
             int numOfCycles=currIndex-prevIndex;
@@ -24,13 +22,6 @@ class Solution {
             ans+=sum[0];
 
             sum[0]=(int)(ans%mod);
-
-            // long totalContribution=contribution*times;
-
-            // System.out.println("c is : "+contribution);
-
-            // long tempSum=(contribution+sum[0]);
-            // sum[0]=(int)(tempSum%sum[1]);
 
 
         }
