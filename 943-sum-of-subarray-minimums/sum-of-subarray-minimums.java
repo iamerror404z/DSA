@@ -71,8 +71,6 @@ class Solution {
         }
 
 
-       
-        System.out.println(deque);
 
         process(deque,-1,arr,sum);
 
