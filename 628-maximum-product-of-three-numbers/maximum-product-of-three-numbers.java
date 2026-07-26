@@ -3,6 +3,8 @@ class Solution {
         Arrays.sort(nums);
         int neg=0,point=0;
         int lm=0,step=Integer.MIN_VALUE;
+
+        
         while(neg<3 && point<nums.length){
             if(nums[point++]<0){neg++;}}
         if(neg>=2){
