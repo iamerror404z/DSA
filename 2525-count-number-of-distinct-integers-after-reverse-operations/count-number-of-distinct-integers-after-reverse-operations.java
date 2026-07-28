@@ -29,8 +29,6 @@ class Solution {
         for(int i:nums){
             int rev=revNumber(i);
 
-            System.out.println("cur num is : "+i+" rev is : "+rev);
-
             if(!map.containsKey(i)){
                 map.put(i,1);
                 uniqueElement++;
