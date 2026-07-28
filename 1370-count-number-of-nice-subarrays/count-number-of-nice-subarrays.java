@@ -5,7 +5,6 @@ class Solution {
         int cycleStart=deque.pollFirst();
         int cycleEnd=deque.isEmpty()?cycleStart:deque.peekLast();
 
-        // finding out the nums of sub arrs in given range
         int cycleLength=end-cycleEnd;
         int prevLength=cycleStart-prevStart;
 
