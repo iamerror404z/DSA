@@ -11,8 +11,6 @@ class Solution {
             isPrime[i]=1;
         }
 
-       System.out.println("isPrime arr before process is : "+Arrays.toString(isPrime));
-
         for(int i=3;i*i<=length;i+=2){
             
             if(isPrime[i]==1){
@@ -39,7 +37,6 @@ class Solution {
 
         int[] isPrime=buildPrimeMap(length-1);
 
-        System.out.println(Arrays.toString(isPrime));
 
         long sum1=0;
         long sum2=0;
