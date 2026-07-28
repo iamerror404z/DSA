@@ -1,61 +1,52 @@
+
 class Solution {
     public String smallestPalindrome(String s) {
-        StringBuilder sb=new StringBuilder();
+        int length=s.length();
+        int[] freq=new int[26];
+        char[] chars=s.toCharArray();
+
+        for(char ch:chars){
+            freq[ch-'a']++;
+        }
+
+        int start=0;
+        int end=length-1;
         
-        int[] map=new int[26];
-        
-        for(char ch:s.toCharArray()){
-            int currIndex=ch-'a';
-            map[currIndex]++;
-        };
-        
-        int middle=-1;
-        
+        int mid=-1;
+
+        System.out.println(Arrays.toString(freq));
+
+
         for(int i=0;i<26;i++){
-            int repeatedTimes=map[i];
-            
-            if(repeatedTimes%2!=0){
-                middle=i;
-                map[i]--;
-            }
-            
-            char curr=(char)('a'+i);
-            for(int j=0;j<repeatedTimes/2;j++){
-                sb.append(curr);
-            }
-            map[i]/=2;
-            
-            
-        }
-
-
-
-        
-        if(middle!=-1){
-            char mid=(char)('a'+middle);
-            sb.append(mid);
-        }
-
-        
-        
-        System.out.println(Arrays.toString(map));
-        
-        
-        for(int i=25;i>=0;i--){
-            int repeatedTimes=map[i];
-            
-            
-           
-            
             char curr=(char)('a'+i);
 
-            for(int j=0;j<repeatedTimes;j++){
-                sb.append(curr);
+            int times=freq[i];
+
+
+            while(times>=2){
+                chars[start]=curr;
+                chars[end]=curr;
+                start++;
+                end--;
+                times-=2;
+
             }
             
+            if(times!=0){
+                mid =i;
+            }
+
         }
         
-        return  sb.toString();
+        if(mid!=-1){
+            char curr=(char)('a'+mid);
+            
+            chars[length/2]=curr;
+        }
         
+        
+        
+
+        return new String(chars);
     }
 }
