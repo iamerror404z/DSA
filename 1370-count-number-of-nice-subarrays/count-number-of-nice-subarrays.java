@@ -36,7 +36,6 @@ class Solution {
                 
                 int cycleCount=countSubArr(queue,i,start);
                 count+=cycleCount;
-                System.out.println(cycleCount);
 
                 start=nextStart;
                 queue.addLast(i);
