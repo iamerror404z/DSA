@@ -24,7 +24,6 @@ class Solution {
 
         for(int i=0;i<length;i++){
             chars[i]=charMap[curr];
-            System.out.print(curr);
 
             if(windowSize==2){
                 curr=Math.abs(curr-1);
