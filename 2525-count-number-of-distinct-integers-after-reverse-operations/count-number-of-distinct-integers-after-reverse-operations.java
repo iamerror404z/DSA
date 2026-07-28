@@ -1,22 +1,46 @@
 class Solution {
 
-    public int revNumber(int num) {
-        int res = 0;
-        while (num != 0) {
-            res = res * 10 + num % 10;
-            num /= 10;
+    public int revNumber(int num){
+        int res=0;
+
+        while(num!=0){
+            int d=num%10;
+            res=(res*10)+d;
+
+            num/=10;
         }
+
         return res;
     }
 
+
+
     public int countDistinctIntegers(int[] nums) {
-        Set<Integer> set = new HashSet<>();
+        int length=nums.length;
+        Map<Integer,Integer> map=HashMap.newHashMap(length);
+        int uniqueElement=0;
 
-        for (int n : nums) {
-            set.add(n);
-            set.add(revNumber(n));
+
+
+
+        for(int i:nums){
+            int rev=revNumber(i);
+
+         
+                map.put(i,1);
+                uniqueElement++;
+        
+
+                map.put(rev,1);
+                uniqueElement++;
+         
+
         }
+        
 
-        return set.size();
+
+
+
+        return map.size();
     }
 }
