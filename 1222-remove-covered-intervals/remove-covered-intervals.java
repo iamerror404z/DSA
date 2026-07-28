@@ -17,11 +17,7 @@ class Solution {
         Arrays.sort(intervals,comp);
         int length=intervals.length;
         
-        System.out.println("sorted arr is : ");
-        
-        for(int[] i:intervals){
-            System.out.println(Arrays.toString(i));
-        }
+  
 
         int delete=0;
         int pointer=0;
@@ -32,7 +28,6 @@ class Solution {
 
             pointer=movePointer(intervals,pointer,i);
 
-            // System.out.println("i is : "+i+" pointer is : "+pointer);
 
             if(intervals[pointer][0]<=currStart && intervals[pointer][1]>=currEnd){
                 delete++;
