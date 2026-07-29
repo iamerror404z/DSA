@@ -47,7 +47,6 @@ class Solution {
         int curr=nums[i];
 
         if(curr<max){
-            // swap the curr with the element whihc ic max than curr and min among all the possiblities
             int swapIndex=minPos(nums,i,curr);
             nums[i]=nums[swapIndex];
             nums[swapIndex]=curr;
