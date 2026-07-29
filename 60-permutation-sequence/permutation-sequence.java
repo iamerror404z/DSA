@@ -53,6 +53,9 @@ class Solution {
             res[i]=curr;
             System.out.println(curr);
 
+            // Sysydknefiwnwfi
+            // ijnqidnwinfinw
+            // jonfinfinqi2n
 
 
             target=nextTarget;
