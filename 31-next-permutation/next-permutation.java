@@ -62,7 +62,7 @@ class Solution {
        }
 
 
-        Arrays.sort(nums);
+        swapArr(nums,0);
 
         return;
     }
