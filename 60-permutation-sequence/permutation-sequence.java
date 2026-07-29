@@ -51,7 +51,6 @@ class Solution {
             
             char curr=(char)(asc+pollDigit(digits,0+cycles));
             res[i]=curr;
-            System.out.println(curr);
 
             // Sysydknefiwnwfi
             // ijnqidnwinfinw
