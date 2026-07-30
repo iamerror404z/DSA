@@ -1,3 +1,19 @@
+/*
+code review;
+    improve the code quality and think about
+    think about the egde casee
+
+    a good code s not something that works by luck 
+
+    it should have been proved theoratically before implementaion
+
+
+
+
+*/
+
+
+
 class Solution {
     
     public int[] updatedStart(int start,int end,int sum,int k
@@ -47,13 +63,14 @@ class Solution {
             if(sum>=k){
                 int[] updatedVal=updatedStart(start,i,sum,k,map,nums);
 
+                int newSum=updatedVal[1];
                 int newStart=updatedVal[0];
                 int end=i+1;
                 int windowSize=end-newStart;
-                sum=updatedVal[1];
 
-
+                sum=newSum;
                 start=newStart;
+                
                 subArrSize=Math.min(subArrSize,windowSize);
 
                 
