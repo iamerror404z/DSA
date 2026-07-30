@@ -1,51 +1,78 @@
 class Solution {
 
-    // Computes water trapped between the current tall bar (rightBar) and the
-    // next-taller bar remaining in the stack, minus the volume already
-    // occupied by shorter bars we pop along the way.
-    private int amountOfWater(Stack<Integer> stack, int[] heights, int rightBarIndex) {
-        int rightBar = heights[rightBarIndex];
-        int occupiedVolume = 0;
-        int leftBarIndex = rightBarIndex; // will be overwritten before use
 
-        while (!stack.isEmpty() && rightBar > heights[stack.peek()]) {
-            int barIndex = stack.pop();
-            int barHeight = heights[barIndex];
+    public int amountOfWater(Stack<Integer> stack,int[] heights,int boundry1Index){
+        int blocked=0;
+        int boundry1=heights[boundry1Index];
 
-            // width this bar occupies up to whatever's now on top of the stack
-            int nextIndex = stack.isEmpty() ? barIndex : stack.peek();
-            occupiedVolume += (nextIndex - barIndex) * barHeight;
 
-            leftBarIndex = barIndex;
+        int boundry2Index=0;
+
+        while(!stack.isEmpty() && boundry1>heights[stack.peek()]){
+            int currIndex=stack.pop();
+            int currVal=heights[currIndex];
+
+            int nextIndex=stack.isEmpty()?currIndex:stack.peek();
+            
+            int currDistance=nextIndex-currIndex;
+            int currBlocked=currDistance*currVal;
+            blocked+=currBlocked;
+
+
+
+            boundry2Index=currIndex;
         }
 
-        // If a taller bar remains, it's the real left wall of this pool.
-        if (!stack.isEmpty()) {
-            leftBarIndex = stack.peek();
+        if(!stack.isEmpty()){
+            boundry2Index=stack.peek();
         }
 
-        int leftBar = heights[leftBarIndex];
-        int width = leftBarIndex - rightBarIndex - 1;
-        int capacity = width * Math.min(rightBar, leftBar);
+        int water=0;
+        int boundry2=heights[boundry2Index];
 
-        return Math.max(0, capacity - occupiedVolume);
+        int distance=boundry2Index-boundry1Index-1;
+
+        int cap=distance*Math.min(boundry1,boundry2);
+
+        water=Math.max(0,cap-blocked);
+
+
+
+
+
+        return water;
     }
 
+
     public int trap(int[] height) {
-        int n = height.length;
-        if (n == 0) return 0;
+       int totalWater=0;
+       
+       int length=height.length;
+       Stack<Integer> stack=new Stack();
+       
+       stack.push(length-1);
 
-        int totalWater = 0;
-        Stack<Integer> stack = new Stack<>();
-        stack.push(n - 1);
 
-        for (int i = n - 2; i >= 0; i--) {
-            int topHeight = height[stack.peek()];
-            if (height[i] > topHeight) {
-                totalWater += amountOfWater(stack, height, i);
+       for(int i=length-2;i>=0;i--){
+            int prev=height[stack.peek()];
+            int curr=height[i];
+            int intervalwater=0;
+
+            if(curr>prev){
+                intervalwater=amountOfWater(stack,height,i);
             }
-            stack.push(i);
-        }
+
+            
+
+            stack.add(i);
+            totalWater+=intervalwater;
+       }
+        
+        
+
+
+
+
 
         return totalWater;
     }
