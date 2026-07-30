@@ -3,7 +3,6 @@ class Solution {
         int res=0;
         int length=word.length();
 
-        System.out.println("length is : "+length);
 
         int ones=Math.min(length,8);
 
