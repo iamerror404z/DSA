@@ -37,8 +37,6 @@ class Solution {
 
         water=Math.max(0,cap-blocked);
 
-        System.out.println("cap is : "+cap);
-        System.out.println("blocked is : "+blocked);
 
 
 
@@ -63,14 +61,9 @@ class Solution {
 
             if(curr>prev){
                 intervalwater=amountOfWater(stack,height,i);
-                System.out.println("water is : "+intervalwater);
-
             }
 
             
-            // System.out.println("indeex is : "+i);
-            // System.out.println("nums is : "+curr);
-            // System.out.println("water is : "+water+"\n");
 
             stack.add(i);
             totalWater+=intervalwater;
