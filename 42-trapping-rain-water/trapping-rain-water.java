@@ -24,7 +24,6 @@ class Solution {
         }
 
         if(!stack.isEmpty()){
-            // update boundry2
             boundry2Index=stack.peek();
         }
 
