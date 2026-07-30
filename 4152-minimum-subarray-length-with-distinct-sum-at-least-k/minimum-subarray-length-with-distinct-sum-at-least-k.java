@@ -55,14 +55,6 @@ class Solution {
 
                 start=newStart;
                 subArrSize=Math.min(subArrSize,windowSize);
-                // System.out.println("index is : "+i);
-                // System.out.println(Arrays.toString(updatedVal));
-
-                // System.out.println("windowSize is : "+windowSize);
-                // System.out.println("Sum is : "+sum);
-
-                // System.out.println(windowSize);
-
 
                 
             }
