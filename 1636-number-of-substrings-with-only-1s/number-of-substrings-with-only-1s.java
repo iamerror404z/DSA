@@ -13,7 +13,7 @@ class Solution {
                 long windowSize=i-start;
                 
                 long windowSum=windowSize*(windowSize+1)/2;
-                // System.out.println
+   
                 
                 windowSum%=mod;
                 count=(int)((count+windowSum)%mod);
