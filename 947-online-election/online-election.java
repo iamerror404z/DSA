@@ -1,6 +1,6 @@
 class TopVotedCandidate {
-    final private int[] leading;
-    final private int[] times;
+     private int[] leading;
+     private int[] times;
 
 
     public TopVotedCandidate(int[] persons, int[] times) {
@@ -66,6 +66,8 @@ class TopVotedCandidate {
         return candidate;   
     }
 }
+
+
 
 /**
  * Your TopVotedCandidate object will be instantiated and called as such:
