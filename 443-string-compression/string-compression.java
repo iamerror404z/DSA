@@ -68,8 +68,6 @@ class Solution {
 
         updateChars(chars,prev,end,freq);
 
-
-        String res=Arrays.toString(chars);
    
 
 
