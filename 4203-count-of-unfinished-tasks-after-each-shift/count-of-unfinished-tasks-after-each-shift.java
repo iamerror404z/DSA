@@ -37,8 +37,6 @@ class Solution {
         }
 
 
-        // System.out.println(Arrays.toString(prefixSum));
-
 
         long sum=0;
         int start=0;
@@ -55,11 +53,6 @@ class Solution {
                 remTasks=tasks.length;
             }
             
-
-            // System.out.println("sum is :"+sum);
-            // System.out.println("start index is : "+start);
-            System.out.println("prefixSum is : "+prefixSum[start]);
-
 
             if(start==tasks.length-1){
                 sum=0;
