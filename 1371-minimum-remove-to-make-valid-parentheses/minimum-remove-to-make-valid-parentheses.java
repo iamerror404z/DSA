@@ -21,7 +21,6 @@ class Solution {
 
         }
 
-         System.out.println(deque);
 
          for(int i=0;i<s.length();i++){
             if(!deque.isEmpty() && i==deque.peekFirst()){
