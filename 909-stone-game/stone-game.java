@@ -1,8 +1,8 @@
 class Solution {
 
     public int maxDiff(int start,int end,int[] piles,int[][] memo){
-        if(start>end){
-            return 0;
+        if(start==end){
+            return piles[start];
         }
 
         if(memo[start][end]!=Integer.MIN_VALUE){
