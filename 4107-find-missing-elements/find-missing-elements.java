@@ -1,18 +1,24 @@
 class Solution {
     public List<Integer> findMissingElements(int[] nums) {
-        List<Integer> lst=new LinkedList<>();
-        Arrays.sort(nums);
-    
-    
-        for(int i=0;i<nums.length-1;i++){
-            int next=nums[i]+1;
-            while(next!=nums[i+1]){
-                lst.add(next++);
+        List<Integer> list=new ArrayList<>();
+        int[] map=new int[101];
 
+        int start=nums[0],end=nums[0];
+
+        for(int i:nums){
+            map[i]++;
+            start=Math.min(start,i);
+            end=Math.max(end,i);
+        }
+
+        for(int i=start+1;i<end;i++){
+            if(map[i]==0){
+                list.add(i);
             }
         }
-        
-        
-        return lst;
+
+
+
+        return list;
     }
 }
