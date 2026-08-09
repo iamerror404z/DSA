@@ -22,9 +22,6 @@ class Solution {
         int currSum=0;
         int max=0;
 
-        
-            System.out.println("start is : "+start);
-            System.out.println("m is : "+m);
 
         for(int i=start;i<end;i++){
             currSum+=piles[i];
@@ -32,9 +29,6 @@ class Solution {
             int player2=dp(i+1,Math.max(i-start+1,m),sum-currSum,piles,memo);
             int nextSum=sum-(currSum+player2);
 
-            System.out.println("currSum is : "+currSum);
-            System.out.println("nextSum is "+nextSum);
-            System.out.println("player2 is :"+player2);
 
             max=Math.max(max,currSum+nextSum);
         }
