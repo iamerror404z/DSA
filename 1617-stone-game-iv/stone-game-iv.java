@@ -1,46 +1,15 @@
 class Solution {
+    static final int MAX = 100000;
+    static final boolean[] dp = new boolean[MAX + 1];
 
-    public int dp(int n,int[] dp){
-        if(n<=0){
-            return 0;
+    static {
+        for (int i = 0; i <= MAX; i++) {
+            if (dp[i]) continue;
+
+            for (int j = 1; j * j <= MAX - i; j++)
+                dp[i + j * j] = true;
         }
-
-        if(dp[n]!=-1){
-            return dp[n];
-        }
-
-        int win=0;
-
-        for(int i=1;i*i<=n;i++){
-            int nextPlayer=dp(n-(i*i),dp);
-            
-            int currPlayer=1^nextPlayer;
-
-            if(currPlayer==1){
-                dp[n]=1;
-                return 1;
-            }
-
-
-        }
-
-        dp[n]=win;
-
-
-
-        return win;
     }
 
-
-
-    public boolean winnerSquareGame(int n) {
-        int[] memo=new int[n+1];
-
-       Arrays.fill(memo,-1);
-
-        
-
-
-        return dp(n,memo)==1;
-    }
+    public boolean winnerSquareGame(int n) { return dp[n]; }
 }
