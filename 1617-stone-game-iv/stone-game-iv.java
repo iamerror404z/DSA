@@ -36,10 +36,9 @@ class Solution {
 
        Arrays.fill(memo,-1);
 
-        int res=dp(n,memo);
         
 
 
-        return res==1;
+        return dp(n,memo)==1;
     }
 }
