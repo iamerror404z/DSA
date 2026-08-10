@@ -24,6 +24,8 @@ class Solution {
 
         }
 
+        dp[n]=win;
+
 
 
         return win;
