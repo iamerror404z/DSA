@@ -29,7 +29,6 @@ class Solution {
             map[i]=true;
         }
 
-        System.out.println("prefixSum is : "+prefixSum);
 
 
 
