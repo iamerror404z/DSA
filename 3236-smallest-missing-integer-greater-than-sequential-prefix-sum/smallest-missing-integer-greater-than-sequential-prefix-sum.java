@@ -3,11 +3,7 @@ class Solution {
         int prev=nums[0];
         int prefixSum=nums[0];
         int length=nums.length;
-        
-        if(length==1){
-            return nums[0]+1;
-        }
-       
+      
 
 
 
