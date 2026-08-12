@@ -70,7 +70,7 @@ class Solution {
         
         
         List<String> res=new LinkedList<>();
-        System.out.println(map);
+
 
         for(String id:map.keySet()){
             List<Integer> times=map.get(id);
