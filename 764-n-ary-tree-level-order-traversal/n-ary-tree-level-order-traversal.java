@@ -16,50 +16,38 @@ class Node {
     }
 };
 */
+/**
+    done with the bfs approach not much efficient now going to apply dfs
+ 
+ */
 
 class Solution {
+
+    public void dfs(Node curr,int level,List<List<Integer>> wrapped){
+        if(wrapped.size()<=level){
+            wrapped.add(new LinkedList<>());
+        }
+
+        wrapped.get(level).add(curr.val);
+
+        for(int i=0;i<curr.children.size();i++){
+            Node child=curr.children.get(i);
+            dfs(child,level+1,wrapped);
+        }
+
+
+    }
+
+
     public List<List<Integer>> levelOrder(Node root) {
         if(root==null){
             return new LinkedList<>();
         }
+
         List<List<Integer>> wrapped=new LinkedList<>();
 
-        Queue<List<Node>> queue=new LinkedList<>();
-        List<Node> rootList=new LinkedList<>();
-        rootList.add(root);
 
-        queue.add(rootList);
-
-        while(!queue.isEmpty()){
-            List<Integer> inner=new LinkedList<>();
-            int size=queue.size();
-
-            for(int i=0;i<size;i++){
-                List<Node> childrens=queue.poll();
-
-                int childrensSize=childrens.size();
-                
-                for(int j=0;j<childrensSize;j++){
-                    Node curr=null;
-                    curr=childrens.get(j);
-                    
-                    inner.add(curr.val);
-
-                    if(curr.children.size()!=0){
-                        queue.add(curr.children);
-                    }
-                }
-            }
-
-           
-
-
-            wrapped.add(inner);
-        }
-
-
-
-        System.out.println("List is : "+wrapped);
+        dfs(root,0,wrapped);
         return wrapped;
     }
 }
