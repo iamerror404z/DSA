@@ -86,15 +86,13 @@ class Solution {
 
         int[][] down=buildDown(mat);
 
-        // for(int i[]:down){
-        //     System.out.println(Arrays.toString(i));
-        // }
+        for(int i[]:down){
+            System.out.println(Arrays.toString(i));
+        }
         
         int[][] right=buildRight(mat);
 
-        // for(int i[]:right){
-        //     System.out.println(Arrays.toString(i));
-        // }
+       
 
         int max=0;
 
