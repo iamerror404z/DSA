@@ -80,15 +80,12 @@ class Solution {
             mat[r][c]=0;
         }
 
-        System.out.println("Array is : ");
 
         
 
         int[][] down=buildDown(mat);
 
-        for(int i[]:down){
-            System.out.println(Arrays.toString(i));
-        }
+       
         
         int[][] right=buildRight(mat);
 
@@ -126,7 +123,6 @@ class Solution {
         }
 
 
-        System.out.println("max is : qeoifniungorwqnaignwinwni35niun3iunwonfoineointgin43infu4ntwini3b4ihbgwi5hb4i3bg5i4hbw3ibg5ih3qig5i3ibg4ui3bqwibg43ihbgihb3ibgihb5ihbqih35hg4hgqi3i3i4ii   hi3hihi 3hihi   `iht i h    i   hihb3ibfi3hbibwi3bihfr3ieihrhawihih"+max);
 
 
         return max;
