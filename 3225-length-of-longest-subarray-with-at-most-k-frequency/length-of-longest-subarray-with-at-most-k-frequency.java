@@ -44,11 +44,8 @@ class Solution {
             
             if(count>k){
                 
-                System.out.println("index is : "+i);
-                System.out.println("count is : "+count);
                 start=updateStart(start,curr,map,nums);
                 
-                System.out.println("start is : "+start+"\n");
             }
 
 
@@ -60,7 +57,6 @@ class Solution {
 
 
 
-        System.out.println("res is :"+max);
         return max;
     }
 }
