@@ -3,7 +3,6 @@ class Solution {
     public boolean isPossible(int[] dist,double hour,int speed){
         int ceil=(int)Math.ceil(1.56478);
         double required=0;
-        System.out.println("ceil is : "+ceil);
 
 
         for(int i=0;i<dist.length;i++){
@@ -52,7 +51,6 @@ class Solution {
         }
 
         
-        System.out.println("res is : "+speed);
         return speed;
     }
 }
