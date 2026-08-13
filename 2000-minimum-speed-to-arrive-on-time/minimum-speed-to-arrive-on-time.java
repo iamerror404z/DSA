@@ -1,7 +1,6 @@
 class Solution {
 
     public boolean isPossible(int[] dist,double hour,int speed){
-        int ceil=(int)Math.ceil(1.56478);
         double required=0;
 
 
