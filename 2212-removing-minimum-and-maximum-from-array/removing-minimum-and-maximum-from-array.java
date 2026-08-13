@@ -40,9 +40,6 @@ class Solution {
         min=Math.min(min,poss3);
 
 
-        System.out.println("left is : "+left);
-        System.out.println("right is : "+right);
-        System.out.println("min is : "+min);
         return Math.min(Math.min(poss1,poss2),poss3);
     }
 }
