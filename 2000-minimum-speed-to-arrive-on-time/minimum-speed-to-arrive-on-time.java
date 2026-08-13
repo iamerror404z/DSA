@@ -11,7 +11,7 @@ class Solution {
         }
 
         long remainingScaled = hourScaled - timeScaled;
-        if (remainingScaled < 0) return false;
+
 
         // check dist[n-1]/speed <= remainingScaled/100  <=>  dist[n-1]*100 <= remainingScaled*speed
         return (long) dist[n - 1] * 100 <= remainingScaled * (long) speed;
