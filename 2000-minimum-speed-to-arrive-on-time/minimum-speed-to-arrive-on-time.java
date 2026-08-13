@@ -26,15 +26,7 @@ class Solution {
 
 
     public int minSpeedOnTime(int[] dist, double hour) {
-        int max=0;
-
-        for(int i:dist){
-            max=Math.max(max,i);
-        }
-
-
         int speed=-1;
-
         int start=1;
         int end=(int)Math.pow(10,7);
 
