@@ -40,6 +40,6 @@ class Solution {
         min=Math.min(min,poss3);
 
 
-        return Math.min(Math.min(poss1,poss2),poss3);
+        return min;
     }
 }
