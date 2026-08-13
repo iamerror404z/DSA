@@ -36,7 +36,7 @@ class Solution {
         int speed=-1;
 
         int start=1;
-        int end=(int)Math.pow(10,9);
+        int end=(int)Math.pow(10,7);
 
         // binary search
         while(start<=end){
