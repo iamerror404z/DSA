@@ -80,9 +80,7 @@ class Solution {
 
         int[][] prefixSum=buildPrefixSum(matrix);
         
-        // for(int i[]:prefixSum){
-        //     System.out.println(Arrays.toString(i));
-        // }
+        
 
         int max=0;
 
@@ -102,8 +100,6 @@ class Solution {
 
                 int maxSize=biSearch( i, j,prefixSum,end);
 
-                // System.out.println("biSearch is : "+maxSize+"\n");
-                // System.out.println("index i is : "+i+" index j is "+j);
 
                 max=Math.max(max,maxSize);
             }
@@ -112,8 +108,6 @@ class Solution {
 
         if(colSize>=2){
         int test=biSearch(0,1,prefixSum,0);
-        System.out.println("biSearch is : "+test);
-        // System.out.println("sum is L "+prefixSum[1+1][2+1]);
         }
 
         return max*max;
