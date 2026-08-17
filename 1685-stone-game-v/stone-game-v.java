@@ -64,10 +64,6 @@ class Solution {
             Arrays.fill(i,-1);
         }
 
-        System.out.println(Arrays.toString(prefixSum));
-        int res=dp(0,length-1,memo,prefixSum);
-        System.out.println("res is : "+res);
-
-        return res;
+        return dp(0,length-1,memo,prefixSum);
     }
 }
