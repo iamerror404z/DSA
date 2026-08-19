@@ -49,11 +49,9 @@ class Solution {
                 int end=9;
 
                 groups+=map[low][end];
-                System.out.println("prev sum is : "+map[low][end]);
 
                 // part2 settle down the missing rows
                 int rowsSkipped=Math.max(0,currRow-prevRow-1);
-                System.out.println("rows skipped is : "+rowsSkipped);
                 groups+=(rowsSkipped*2);
 
 
@@ -67,8 +65,6 @@ class Solution {
 
             int currGroups=map[low][end];
 
-            System.out.println("index is  :"+i);
-            System.out.println("currgroups is : "+currGroups);
             prevSeat=currSeat;
             groups+=currGroups;
         }
@@ -76,13 +72,10 @@ class Solution {
         groups+=(map[prevSeat+1][9]);
 
         // Process the remaining the rows
-        int rowsSkipped=Math.max(0,n-prevRow);
+        int rowsSkipped=n-prevRow;
         
 
         groups+=(rowsSkipped*2);
-        // for(int i[]:reservedSeats){
-        //     System.out.println(Arrays.toString(i));
-        // }
 
         return groups; 
     }
