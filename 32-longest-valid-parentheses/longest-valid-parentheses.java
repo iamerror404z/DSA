@@ -49,7 +49,6 @@ class Solution {
         int[] res=new int[length];
         
         valid(s,res);
-        System.out.println("res is : "+Arrays.toString(res));
 
         return longest(res);   
     }
