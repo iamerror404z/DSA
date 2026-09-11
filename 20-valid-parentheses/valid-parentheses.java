@@ -9,18 +9,11 @@ class Solution {
 
         for(char ch:s.toCharArray()){
 
-            if(map.containsKey(ch)){
-
-                if(!stack.isEmpty() && map.get(ch)==stack.peek()){
-                    stack.pop();
-                }else{
-                    stack.push(ch);
-                }
-
+            if(map.containsKey (ch) && !stack.isEmpty() && map.get(ch)==stack.peek()){
+                stack.pop();
             }else{
                 stack.push(ch);
             }
-
 
         }
 
