@@ -20,7 +20,6 @@ class Solution {
         int bitCount1=countBits(a);
         int bitCount2=countBits(b);
 
-        System.out.println(bitCount1+" "+bitCount2);
         return bitCount1>=bitCount2?bitCount1*bitCount2:bitCount2/bitCount1;
     }
 }
