@@ -6,13 +6,14 @@
 class Solution {
     public int dp(int num,int r,int c,int[][][] memo,int[][] grid){
         if(Math.min(r,c)<0){
-            return Integer.MAX_VALUE;
+            return 1024;
         }
 
         int curr=grid[r][c];
+        int next=curr^num;
         if(r==0 && c==0){
 
-            return num^curr;
+            return next;
         }
 
         if(memo[num][r][c]!=-1){
@@ -20,8 +21,8 @@ class Solution {
         }
 
 
-        int up=dp(num^curr,r-1,c,memo,grid);
-        int left=dp(num^curr,r,c-1,memo,grid);
+        int up=dp(next,r-1,c,memo,grid);
+        int left=dp(next,r,c-1,memo,grid);
 
 
 
