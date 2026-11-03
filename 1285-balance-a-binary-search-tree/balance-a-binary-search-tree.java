@@ -14,26 +14,25 @@
  * }
  */
 class Solution {
-    public void inOrder(TreeNode curr,List<Integer> list){
+    public void inOrder(TreeNode curr,List<TreeNode> list){
         if(curr==null){
             return;
         }
 
         inOrder(curr.left,list);
-        list.add(curr.val);
+        list.add(curr);
         inOrder(curr.right,list);
 
     }
 
-    public TreeNode buildBST(int start,int end,List<Integer> list){
+    public TreeNode buildBST(int start,int end,List<TreeNode> list){
         if(start>end){
             return null;
         }
 
         int mid=start+(end-start)/2;
 
-        TreeNode curr=new TreeNode(list.get(mid));
-
+        TreeNode curr=list.get(mid);
         curr.left=buildBST(start,mid-1,list);
         curr.right=buildBST(mid+1,end,list);
         
@@ -44,7 +43,7 @@ class Solution {
 
 
     public TreeNode balanceBST(TreeNode root) {
-        List<Integer> list = new LinkedList<>();    
+        List<TreeNode> list = new LinkedList<>();    
         inOrder(root,list);
 
 
