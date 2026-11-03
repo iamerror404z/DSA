@@ -43,6 +43,10 @@ class Solution {
         return trees;
         }
 
+        if(!memo[left][right].queue.isEmpty()){
+            return memo[left][right].queue;
+        }
+
         Queue<TreeNode> trees=new LinkedList<>();
         for(int i=left;i<=right;i++){
                 int currPos=i;
