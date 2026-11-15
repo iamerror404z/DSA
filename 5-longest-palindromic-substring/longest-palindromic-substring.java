@@ -1,88 +1,70 @@
 class Solution {
 
-    public int[] dfs(int left,int right,int[][][] memo,String s){
-        if(left==right){
+    public boolean isValid(int left,int right,String s){
+        if(left<0 || right>=s.length()){
 
-
-
-            return new int[]{left,1};
+            return false;
         }
 
-        if(right==left+1 && s.charAt(left)==s.charAt(right)){
-            return new int[]{left,2};
-        }
-
-
-
-        if(memo[left][right][0]!=-1){
-            
-            return new int[]{memo[left][right][0],
-            memo[left][right][1]};
-        }
-
-        int[] take={left,1};
-        
-        int[] skipLeft=dfs(left+1,right,memo,s);
-        int[] skipRight=dfs(left,right-1,memo,s);
-
-
-        if(s.charAt(left)==s.charAt(right)){
-            take=dfs(left+1,right-1,memo,s);
-
-            int start=take[0];
-            int end=take[0]+take[1];
-
-            if(start==left+1 && end==right){
-                take[0]=left;
-                take[1]=take[1]+2;
-            }else{
-                take[0]=left;
-                take[1]=1;
-            }
-
-
-        }
-
-
-        int[] res=take;
-        if(take[1]>=skipLeft[1] && take[1]>=skipRight[1]){
-
-            res=take;
-        }else if(skipLeft[1]>=skipRight[1]){
-            
-            res=skipLeft;
-        }else{
-            res=skipRight;
-        }
-
-        
-
-
-
-
-
-        memo[left][right][0]=res[0];
-        memo[left][right][1]=res[1];
-        return res;
+        return true;
     }
 
 
-
-    public String longestPalindrome(String s) {
-        int n =s.length();
-        int[][][]  memo=new int[n][n][2];
+    public int[] expand(int left,int right,String s){
+        int[] res={0,0};
 
 
-        for(int i[][]:memo){
-            for(int[] j:i){
-                Arrays.fill(j,-1);
-            }
+        while(isValid(left,right,s) && s.charAt(left)==s.charAt(right)){
+            res[0]=left;
+            res[1]=right;
+
+
+            left--;
+            right++;
         }
 
+        if(res[0]==res[1] && res[0]==0){
+            res[0]=left;
+            res[1]=left+1;
+        }else{
+
+
+        res[1]++;}
+
+        return res;
+    }
+
+    public String longestPalindrome(String s) {
+        int res[]=new int[2];
+        res[1]++;
+        int n=s.length();
         
-        int[] call=dfs(0,n-1,memo,s);
+
+        for(int i=1;i<n;i++){
+            int[] currOdd=expand(i,i,s);
+            int[] currEven=expand(i-1,i,s);
+
+            int[] curr=currEven;
 
 
-        return s.substring(call[0],call[0]+call[1]);
+            if(currOdd[1]-currOdd[0]>currEven[1]-currEven[0]){
+                curr=currOdd;
+            }
+
+            int currLen=curr[1]-curr[0];
+            int prevLen=res[1]-res[0];
+
+
+            if(currLen>prevLen){
+                res[0]=curr[0];
+                res[1]=curr[1];
+            }
+
+
+
+        }
+
+
+        return s.substring(res[0],res[1]);
     }
 }
