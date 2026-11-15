@@ -1,53 +1,50 @@
 class Solution {
-
-    public int dp(int left,int right,int[][] memo,String s){
-        if(left==right){
-            return 1;
+    public int dpMethod(int index1,int index2,String s,int[][] dp){
+        if(dp[index1][index2]!=-1){
+            return dp[index1][index2];
         }
 
-        char ch1=s.charAt(left);
-        char ch2=s.charAt(right);
-
-
-        if(left+1==right && ch1==ch2){
-            return 2;
-        }
-
-        if(memo[left][right]!=-1)
-        {
-            return memo[left][right];
-        }
-
-
-        int skipLeft=dp(left+1,right,memo,s);
-        int skipRight=dp(left,right-1,memo,s);
-
-
-        int take=0;
+        char ch1=s.charAt(index1);
+        char ch2=s.charAt(index2);
+        int currSize=0;
 
         if(ch1==ch2){
-            take=dp(left+1,right-1,memo,s)+2;
+            currSize=1;
+            if(index1+1<s.length() && index2-1>=0){
+                currSize+=dpMethod(index1+1,index2-1,s,dp);}
+            
+            
+        }else{
+                if(index1+1<s.length()){
+                    currSize=0+dpMethod(index1+1,index2,s,dp);
+                }
 
+                if(index2-1>=0){
+                    currSize=Math.max(currSize,dpMethod(index1,index2-1,s,dp));
+                }
+            }
+        
+        dp[index1][index2]=currSize;
 
-        }
-
-        int res=Math.max(take,
-        Math.max(skipLeft,skipRight));
-
-        memo[left][right]=res;
-        return res;
+        return currSize;
     }
 
+
+
     public int longestPalindromeSubseq(String s) {
-        int n=s.length();
+       int size=s.length();
 
-        int[][] memo=new int[n][n];
+        int[][] dp=new int[size][size];
 
-        for(int i[]:memo){
+        for(int i[]:dp){
             Arrays.fill(i,-1);
         }
-        
-        return dp(0,n-1,memo,s);
 
+        dpMethod(0,size-1,s,dp);
+
+
+
+        return dp[0][size-1];
+        
     }
 }
