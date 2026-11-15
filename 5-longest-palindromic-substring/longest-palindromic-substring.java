@@ -20,7 +20,7 @@ class Solution {
             memo[left][right][1]};
         }
 
-        int[] take=new int[]{left,1};
+        int[] take={left,1};
         
         int[] skipLeft=dfs(left+1,right,memo,s);
         int[] skipRight=dfs(left,right-1,memo,s);
@@ -44,7 +44,7 @@ class Solution {
         }
 
 
-        int[] res=new int[2];
+        int[] res=take;
         if(take[1]>=skipLeft[1] && take[1]>=skipRight[1]){
 
             res=take;
