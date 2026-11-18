@@ -19,19 +19,25 @@ class Solution {
 
         int res=0;
         
-        if(prev==2){
-            int take=dp(index-1,curr,memo,s);
-            int swap=dp(index-1,curr^1,memo,s)+1;
-
-            res=Math.min(take,swap);
-        }else{
+        if(prev!=2){
             int next=dp(index-1,2,memo,s);
 
             if(curr!=prev){
                 next++;
             }
+
             res=next;
+        }else if(index-1>=0 && s.charAt(index-1)==curr){
+
+            res=dp(index-2,2,memo,s);
+        }else{
+            int take=dp(index-1,curr,memo,s);
+            int swap=dp(index-1,curr^1,memo,s)+1;
+
+            res=Math.min(take,swap);
         }
+
+
         
 
 
