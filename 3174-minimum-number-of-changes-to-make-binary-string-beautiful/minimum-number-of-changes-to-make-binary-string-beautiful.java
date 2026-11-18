@@ -1,43 +1,42 @@
 class Solution {
 
-    public int dp(int index,int prev,int type,int[][][] memo,
+    public int dp(int index,int prev,int[][] memo,
     String s){
         if(index<0){
-            if(type==1){
+            if(prev!=2){
                 return s.length();
             }
 
             return 0;
         }
 
-        if(memo[index][prev][type]!=-1){
+        if(memo[index][prev]!=-1){
 
-            return memo[index][prev][type];
+            return memo[index][prev];
         }
 
         int curr=s.charAt(index)-'0';
 
         int res=0;
-        if(type==1){
-            int next=dp(index-1,prev,(type+1)%2,memo,s);
+        
+        if(prev==2){
+            int take=dp(index-1,curr,memo,s);
+            int swap=dp(index-1,curr^1,memo,s)+1;
+
+            res=Math.min(take,swap);
+        }else{
+            int next=dp(index-1,2,memo,s);
 
             if(curr!=prev){
                 next++;
             }
-
             res=next;
-        }else{
-            int swap=dp(index-1,curr^1,1,memo,s)+1;
-            int take=dp(index-1,curr,1,memo,s);
-
-
-            res=Math.min(swap,take);
         }
         
 
 
 
-        return memo[index][prev][type]=res;
+        return memo[index][prev]=res;
     }
 
 
@@ -46,19 +45,14 @@ class Solution {
     public int minChanges(String s) {
         int size=s.length();
 
-        int[][][] memo=new int[size][2][2];
+        int[][] memo=new int[size][3];
 
-        for(int i[][]:memo){
-            for(int j[]:i){
-                Arrays.fill(j,-1);
-            }
+        for(int i[]:memo){
+            Arrays.fill(i,-1);
+            
         }
 
-        int start=s.charAt(size-1)-'0';
-        int take=dp(size-2,start,1,memo,s);
-        int swap=dp(size-2,start^1,1,memo,s)+1;
 
-        // System.out.println(take+" : "+swap);
-        return Math.min(take,swap);
+        return dp(size-1,2,memo,s);
     }
 }
